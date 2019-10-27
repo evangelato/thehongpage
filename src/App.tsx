@@ -1,4 +1,5 @@
 import React from 'react';
+import Sidebar from './container/Sidebar';
 import logo from './logo.svg';
 import './App.css';
 
@@ -6,6 +7,7 @@ const App: React.FC = () => {
   return (
     <div className="App">
       <header className="App-header">
+        <Sidebar />
         <img src={logo} className="App-logo" alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
