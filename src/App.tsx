@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import Sidebar from './container/Sidebar';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -24,26 +24,21 @@ const App: React.FC = () => {
   );
   const classes = useStyles();
 
-  const [state, setState] = React.useState({
-    isSidebarOpen: false
-  });
+  const [isSidebarOpen, toggleSidebar] = useState(false);
 
-  const toggleSidebar = () => {
-    setState({ ...state, isSidebarOpen: true });
-  }
   return (
     <div className={classes.root}>
       <AppBar position="static">
         <Toolbar>
           <IconButton edge="start" className={classes.menuButton} aria-label="menu">
-            <MenuIcon onClick={toggleSidebar} />
+            <MenuIcon onClick={() => toggleSidebar(!isSidebarOpen)} />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             The Hongpage
           </Typography>
         </Toolbar>
       </AppBar>
-      <Sidebar isSidebarOpen={state.isSidebarOpen} />
+      <Sidebar isSidebarOpen={isSidebarOpen} />
     </div>
   );
 }
