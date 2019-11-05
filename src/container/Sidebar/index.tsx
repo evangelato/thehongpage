@@ -11,25 +11,22 @@ interface Props {
     isSidebarOpen: boolean
 }
 
-class Sidebar extends React.Component<Props> {
-    state = {}
+const Sidebar: React.FC<Props> = (props) => {
+    return (
+        <Drawer open={props.isSidebarOpen}>
+            <div className="list">
+                <List>
+                    <ListItem>
+                        <ListItemIcon><InboxIcon /></ListItemIcon>
+                        <ListItemText>
+                            Test
+                        </ListItemText>
+                    </ListItem>
+                </List>
+            </div>
+        </Drawer>
+    );
 
-    render() {
-        return (
-            <Drawer open={this.props.isSidebarOpen}>
-                <div className="list">
-                    <List>
-                        <ListItem>
-                            <ListItemIcon><InboxIcon /></ListItemIcon>
-                            <ListItemText>
-                                Test
-                            </ListItemText>
-                        </ListItem>
-                    </List>
-                </div>
-            </Drawer>
-        );
-    }
 }
 
 export default Sidebar;
