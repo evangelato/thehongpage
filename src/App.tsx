@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Sidebar from './container/Sidebar';
+import Sidebar from './containers/Sidebar';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import AppBar from '@material-ui/core/AppBar';
