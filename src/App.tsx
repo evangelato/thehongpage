@@ -1,6 +1,9 @@
 import React from 'react';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Sidebar from './containers/Sidebar';
+import Home from './containers/Home';
+import Resume from './containers/Resume';
 import { openSidebar } from "./actions";
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -31,20 +34,28 @@ const App: React.FC = () => {
   const dispatch = useDispatch();
 
 
-  return (
-    <div className={classes.root}>
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} aria-label="menu">
-            <MenuIcon onClick={() => dispatch(openSidebar())} />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            The Hongpage
-          </Typography>
-        </Toolbar>
-      </AppBar>
-      <Sidebar />
-    </div>
+  return ( 
+      <div className={classes.root}>
+        <Router>
+          <AppBar position="static">
+            <Toolbar>
+              <IconButton edge="start" className={classes.menuButton} aria-label="menu">
+                <MenuIcon onClick={() => dispatch(openSidebar())} />
+              </IconButton>
+              <Typography variant="h6" className={classes.title}>
+                The Hongpage
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <Sidebar />
+          <Switch>
+            <Route path="/" exact component={Home} />
+            <Route path="/resume" component={Resume} />
+          </Switch>
+        </Router>
+      </div>
+      
+    
   );
 }
 
