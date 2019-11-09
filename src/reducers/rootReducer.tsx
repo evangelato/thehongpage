@@ -2,7 +2,7 @@ import { combineReducers } from 'redux';
 import Sidebar from './sidebarReducer';
 
 const rootReducer = combineReducers({
-    Sidebar
+    Sidebar,
 });
 
 export default rootReducer;

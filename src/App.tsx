@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import Sidebar from './containers/Sidebar';
 import Home from './containers/Home';
 import Resume from './containers/Resume';
-import { openSidebar } from "./actions";
+import { openSidebar } from './actions';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import AppBar from '@material-ui/core/AppBar';
@@ -14,49 +14,46 @@ import IconButton from '@material-ui/core/IconButton';
 import './App.css';
 
 const App: React.FC = () => {
-  const useStyles = makeStyles((theme: Theme) =>
-    createStyles({
-      root: {
-        flexGrow: 1,
-      },
-      menuButton: {
-        marginRight: theme.spacing(2),
-      },
-      title: {
-        flexGrow: 1,
-      },
-    }),
-  );
-  const classes = useStyles();
+    const useStyles = makeStyles((theme: Theme) =>
+        createStyles({
+            root: {
+                flexGrow: 1,
+            },
+            menuButton: {
+                marginRight: theme.spacing(2),
+            },
+            title: {
+                flexGrow: 1,
+            },
+        }),
+    );
+    const classes = useStyles();
 
-  // const [isSidebarOpen, toggleSidebar] = useState(false);
+    // const [isSidebarOpen, toggleSidebar] = useState(false);
 
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-
-  return ( 
-      <div className={classes.root}>
-        <Router>
-          <AppBar position="static">
-            <Toolbar>
-              <IconButton edge="start" className={classes.menuButton} aria-label="menu">
-                <MenuIcon onClick={() => dispatch(openSidebar())} />
-              </IconButton>
-              <Typography variant="h6" className={classes.title}>
-                The Hongpage
-              </Typography>
-            </Toolbar>
-          </AppBar>
-          <Sidebar />
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/resume" component={Resume} />
-          </Switch>
-        </Router>
-      </div>
-      
-    
-  );
-}
+    return (
+        <div className={classes.root}>
+            <Router>
+                <AppBar position="static">
+                    <Toolbar>
+                        <IconButton edge="start" className={classes.menuButton} aria-label="menu">
+                            <MenuIcon onClick={()=> dispatch(openSidebar())} />
+                        </IconButton>
+                        <Typography variant="h6" className={classes.title}>
+                            The Hongpage
+                        </Typography>
+                    </Toolbar>
+                </AppBar>
+                <Sidebar />
+                <Switch>
+                    <Route path="/" exact component={Home} />
+                    <Route path="/resume" component={Resume} />
+                </Switch>
+            </Router>
+        </div>
+    );
+};
 
 export default App;

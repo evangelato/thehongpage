@@ -1,7 +1,7 @@
 import React from 'react';
 import './Sidebar.css';
-import { Link }  from 'react-router-dom';
-import { closeSidebar } from "../../actions";
+import { Link } from 'react-router-dom';
+import { closeSidebar } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';
@@ -23,27 +23,22 @@ const Sidebar: React.FC = () => {
                         <ListItemIcon>
                             <HomeIcon />
                         </ListItemIcon>
-                        <Link to ="/" style={{ textDecoration: 'none' }} onClick={() => dispatch(closeSidebar())}>
-                            <ListItemText>
-                                Home
-                            </ListItemText>
+                        <Link to="/" style={{ textDecoration: 'none' }} onClick={() => dispatch(closeSidebar())}>
+                            <ListItemText>Home</ListItemText>
                         </Link>
                     </ListItem>
                     <ListItem>
                         <ListItemIcon>
                             <InfoIcon />
                         </ListItemIcon>
-                        <Link to ="/resume" style={{ textDecoration: 'none' }} onClick={() => dispatch(closeSidebar())}>
-                            <ListItemText>
-                                Resume
-                            </ListItemText>
+                        <Link to="/resume" style={{ textDecoration: 'none' }} onClick={() => dispatch(closeSidebar())}>
+                            <ListItemText>Resume</ListItemText>
                         </Link>
                     </ListItem>
                 </List>
             </div>
         </Drawer>
     );
-
-}
+};
 
 export default Sidebar;
