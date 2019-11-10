@@ -15,9 +15,9 @@
     },
     "rules":  {
       "@typescript-eslint/explicit-function-return-type": [
+        "warn",
         {
-          "allowExpressions": true,
-          "allowTypedFunctionalExpressions": true
+          "allowExpressions": true
         }
       ],
       "@typescript-eslint/no-explicit-any": "off"

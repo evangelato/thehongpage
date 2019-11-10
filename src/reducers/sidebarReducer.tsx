@@ -1,10 +1,14 @@
 import { OPEN_SIDEBAR, CLOSE_SIDEBAR, SidebarActionTypes } from '../actions';
 
+interface SidebarState {
+    isSidebarOpen: boolean;
+}
+
 const initialState = {
     isSidebarOpen: false,
 };
 
-function sidebarReducer(state = initialState, action: SidebarActionTypes) {
+function sidebarReducer(state = initialState, action: SidebarActionTypes): SidebarState {
     switch (action.type) {
         case OPEN_SIDEBAR:
             return Object.assign({}, state, {

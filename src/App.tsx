@@ -11,6 +11,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import './App.css';
 
 const App: React.FC = () => {
@@ -34,12 +35,13 @@ const App: React.FC = () => {
     const dispatch = useDispatch();
 
     return (
-        <div className={classes.root}>
+        <React.Fragment>
+            <CssBaseline />
             <Router>
                 <AppBar position="static">
                     <Toolbar>
                         <IconButton edge="start" className={classes.menuButton} aria-label="menu">
-                            <MenuIcon onClick={()=> dispatch(openSidebar())} />
+                            <MenuIcon onClick={() => dispatch(openSidebar())} />
                         </IconButton>
                         <Typography variant="h6" className={classes.title}>
                             The Hongpage
@@ -52,7 +54,7 @@ const App: React.FC = () => {
                     <Route path="/resume" component={Resume} />
                 </Switch>
             </Router>
-        </div>
+        </React.Fragment>
     );
 };
 
