@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-import Background from '../../images/workstation.jpeg';
+import Background from '../../images/wallpaper.jpeg';
 
 const useStyles = makeStyles(theme => ({
     icon: {
