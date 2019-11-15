@@ -5,6 +5,7 @@ import Sidebar from './containers/Sidebar';
 import Home from './containers/Home';
 import Resume from './containers/Resume';
 import { openSidebar } from './actions';
+import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import AppBar from '@material-ui/core/AppBar';
@@ -34,26 +35,34 @@ const App: React.FC = () => {
 
     const dispatch = useDispatch();
 
+    const theme = createMuiTheme({
+        palette: {
+            type: 'dark',
+        },
+    });
+
     return (
         <React.Fragment>
             <CssBaseline />
-            <Router>
-                <AppBar position="static">
-                    <Toolbar>
-                        <IconButton edge="start" className={classes.menuButton} aria-label="menu">
-                            <MenuIcon onClick={() => dispatch(openSidebar())} />
-                        </IconButton>
-                        <Typography variant="h6" className={classes.title}>
-                            The Hongpage
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
-                <Sidebar />
-                <Switch>
-                    <Route path="/" exact component={Home} />
-                    <Route path="/resume" component={Resume} />
-                </Switch>
-            </Router>
+            <MuiThemeProvider theme={theme}>
+                <Router>
+                    <AppBar position="static">
+                        <Toolbar>
+                            <IconButton edge="start" className={classes.menuButton} aria-label="menu">
+                                <MenuIcon onClick={() => dispatch(openSidebar())} />
+                            </IconButton>
+                            <Typography variant="h6" className={classes.title}>
+                                The Hongpage
+                            </Typography>
+                        </Toolbar>
+                    </AppBar>
+                    <Sidebar />
+                    <Switch>
+                        <Route path="/" exact component={Home} />
+                        <Route path="/resume" component={Resume} />
+                    </Switch>
+                </Router>
+            </MuiThemeProvider>
         </React.Fragment>
     );
 };
