@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sidebar.css';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 import { closeSidebar } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import Drawer from '@material-ui/core/Drawer';
@@ -17,23 +17,19 @@ const Sidebar: React.FC = () => {
 
     return (
         <Drawer open={isSidebarOpen} onClose={() => dispatch(closeSidebar())}>
-            <div className="list">
+            <div className="list" role="presentation">
                 <List>
-                    <ListItem>
+                    <ListItem button key="Home" component={NavLink} to="/">
                         <ListItemIcon>
                             <HomeIcon />
                         </ListItemIcon>
-                        <Link to="/" style={{ textDecoration: 'none' }} onClick={() => dispatch(closeSidebar())}>
-                            <ListItemText>Home</ListItemText>
-                        </Link>
+                        <ListItemText>Home</ListItemText>
                     </ListItem>
-                    <ListItem>
+                    <ListItem button key="Resume" component={NavLink} to="/resume">
                         <ListItemIcon>
                             <InfoIcon />
                         </ListItemIcon>
-                        <Link to="/resume" style={{ textDecoration: 'none' }} onClick={() => dispatch(closeSidebar())}>
-                            <ListItemText>Resume</ListItemText>
-                        </Link>
+                        <ListItemText>Resume</ListItemText>
                     </ListItem>
                 </List>
             </div>
