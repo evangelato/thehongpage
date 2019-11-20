@@ -23,6 +23,7 @@ const useStyles = makeStyles(theme => ({
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
+        backgroundSize: 'cover',
         padding: theme.spacing(8, 0, 6),
     },
     heroButtons: {
