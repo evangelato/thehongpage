@@ -88,7 +88,7 @@ const Home: React.FC = () => {
                             <Card className={classes.card}>
                                 <CardMedia
                                     className={classes.cardMedia}
-                                    image="https://source.unsplash.com/random"
+                                    image={require('../../images/briefcase.png')}
                                     title="Image title"
                                 />
                                 <CardContent className={classes.cardContent}>
@@ -113,7 +113,7 @@ const Home: React.FC = () => {
                             <Card className={classes.card}>
                                 <CardMedia
                                     className={classes.cardMedia}
-                                    image="https://source.unsplash.com/random"
+                                    image={require('../../images/graduation_hat.png')}
                                     title="Image title"
                                 />
                                 <CardContent className={classes.cardContent}>
@@ -138,7 +138,7 @@ const Home: React.FC = () => {
                             <Card className={classes.card}>
                                 <CardMedia
                                     className={classes.cardMedia}
-                                    image="https://source.unsplash.com/random"
+                                    image={require('../../images/lightbulb.png')}
                                     title="Image title"
                                 />
                                 <CardContent className={classes.cardContent}>
