@@ -9,7 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
-import Background from '../../images/wallpaper.jpeg';
+import HeroImage from '../../images/heroImage.jpeg';
 
 const useStyles = makeStyles(theme => ({
     icon: {
@@ -19,7 +19,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.background.paper,
     },
     heroContent: {
-        backgroundImage: `url(${Background})`,
+        backgroundImage: `url(${HeroImage})`,
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
@@ -67,15 +67,10 @@ const Home: React.FC = () => {
                             it short and sweet, but not too short so folks don&apos;t simply skip over it entirely.
                         </Typography>
                         <div className={classes.heroButtons}>
-                            <Grid container spacing={2} justify="center">
+                            <Grid container spacing={1} justify="center">
                                 <Grid item>
                                     <Button variant="contained" color="primary">
                                         Download Resume
-                                    </Button>
-                                </Grid>
-                                <Grid item>
-                                    <Button variant="outlined" color="primary">
-                                        Secondary action
                                     </Button>
                                 </Grid>
                             </Grid>
