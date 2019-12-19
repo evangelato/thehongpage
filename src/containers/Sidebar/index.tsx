@@ -60,7 +60,6 @@ const Sidebar: React.FC = () => {
                         </ListItemIcon>
                         <ListItemText>Skills</ListItemText>
                     </ListItem>
-                    
                     <ListItem button key="Hobbies" component={NavLink} to="/hobbies">
                         <ListItemIcon>
                             <PaletteIcon />
