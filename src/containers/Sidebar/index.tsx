@@ -1,6 +1,6 @@
 import React from 'react';
 import './Sidebar.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { closeSidebar } from '../../actions';
 import { useDispatch, useSelector } from 'react-redux';
 import Drawer from '@material-ui/core/Drawer';
@@ -19,12 +19,20 @@ import PaletteIcon from '@material-ui/icons/Palette';
 const Sidebar: React.FC = () => {
     const isSidebarOpen = useSelector((state: any) => state.Sidebar.isSidebarOpen);
     const dispatch = useDispatch();
+    const { pathname } = useLocation();
 
     return (
         <Drawer open={isSidebarOpen} onClose={() => dispatch(closeSidebar())}>
             <div className="list" role="presentation">
                 <List>
-                    <ListItem button key="Home" component={NavLink} to="/" onClick={() => dispatch(closeSidebar())}>
+                    <ListItem
+                        button
+                        key="Home"
+                        component={NavLink}
+                        to="/"
+                        selected={pathname === '/'}
+                        onClick={() => dispatch(closeSidebar())}
+                    >
                         <ListItemIcon>
                             <HomeIcon />
                         </ListItemIcon>
@@ -35,6 +43,7 @@ const Sidebar: React.FC = () => {
                         key="AboutMe"
                         component={NavLink}
                         to="/about_me"
+                        selected={pathname === '/about_me'}
                         onClick={() => dispatch(closeSidebar())}
                     >
                         <ListItemIcon>
@@ -47,6 +56,7 @@ const Sidebar: React.FC = () => {
                         key="WorkExperience"
                         component={NavLink}
                         to="/work_experience"
+                        selected={pathname === '/work_experience'}
                         onClick={() => dispatch(closeSidebar())}
                     >
                         <ListItemIcon>
@@ -59,6 +69,7 @@ const Sidebar: React.FC = () => {
                         key="Education"
                         component={NavLink}
                         to="/education"
+                        selected={pathname === '/education'}
                         onClick={() => dispatch(closeSidebar())}
                     >
                         <ListItemIcon>
@@ -71,6 +82,7 @@ const Sidebar: React.FC = () => {
                         key="PersonalProjects"
                         component={NavLink}
                         to="/personal_projects"
+                        selected={pathname === '/personal_projects'}
                         onClick={() => dispatch(closeSidebar())}
                     >
                         <ListItemIcon>
@@ -83,6 +95,7 @@ const Sidebar: React.FC = () => {
                         key="Skills"
                         component={NavLink}
                         to="/skills"
+                        selected={pathname === '/skills'}
                         onClick={() => dispatch(closeSidebar())}
                     >
                         <ListItemIcon>
@@ -95,6 +108,7 @@ const Sidebar: React.FC = () => {
                         key="Hobbies"
                         component={NavLink}
                         to="/hobbies"
+                        selected={pathname === '/hobbies'}
                         onClick={() => dispatch(closeSidebar())}
                     >
                         <ListItemIcon>
