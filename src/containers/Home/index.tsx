@@ -9,7 +9,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
-import Link from '@material-ui/core/Link';
 import HeroImage from '../../images/heroImage.jpeg';
 
 const useStyles = makeStyles(theme => ({
@@ -44,10 +43,6 @@ const useStyles = makeStyles(theme => ({
     },
     cardContent: {
         flexGrow: 1,
-    },
-    footer: {
-        backgroundColor: theme.palette.background.paper,
-        padding: theme.spacing(6),
     },
 }));
 
@@ -165,24 +160,6 @@ const Home: React.FC = () => {
                     </Grid>
                 </Container>
             </main>
-            {/* Footer */}
-            <footer className={classes.footer}>
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
-                <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
-                </Typography>
-                <Typography variant="body2" color="textSecondary" align="center">
-                    {'Copyright © '}
-                    <Link color="inherit" href="https://material-ui.com/">
-                        Your Website
-                    </Link>{' '}
-                    {new Date().getFullYear()}
-                    {'.'}
-                </Typography>
-            </footer>
-            {/* End footer */}
         </React.Fragment>
     );
 };

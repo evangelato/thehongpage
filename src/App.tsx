@@ -9,6 +9,7 @@ import EducationPage from './containers/Education';
 import PersonalProjectsPage from './containers/PersonalProjects';
 import SkillsPage from './containers/Skills';
 import HobbiesPage from './containers/Hobbies';
+import Footer from './containers/Footer';
 import { openSidebar } from './actions';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
@@ -77,6 +78,7 @@ const App: React.FC = () => {
                         <Route path="/skills" exact component={SkillsPage} />
                         <Route path="/hobbies" exact component={HobbiesPage} />
                     </Switch>
+                    <Footer />
                 </Router>
             </MuiThemeProvider>
         </React.Fragment>
