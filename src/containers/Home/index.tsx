@@ -67,10 +67,15 @@ const Home: React.FC = () => {
                             it short and sweet, but not too short so folks don&apos;t simply skip over it entirely.
                         </Typography>
                         <div className={classes.heroButtons}>
-                            <Grid container spacing={1} justify="center">
+                            <Grid container spacing={2} justify="center">
                                 <Grid item>
                                     <Button variant="contained" color="primary">
                                         Download Resume
+                                    </Button>
+                                </Grid>
+                                <Grid item>
+                                    <Button variant="contained" color="secondary">
+                                        Contact Me
                                     </Button>
                                 </Grid>
                             </Grid>
