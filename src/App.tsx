@@ -33,6 +33,7 @@ const App: React.FC = () => {
             title: {
                 flexGrow: 1,
             },
+            toolbar: theme.mixins.toolbar,
         }),
     );
     const classes = useStyles();
@@ -58,7 +59,7 @@ const App: React.FC = () => {
             <MuiThemeProvider theme={theme}>
                 <CssBaseline />
                 <Router>
-                    <AppBar position="static">
+                    <AppBar position="fixed">
                         <Toolbar>
                             <IconButton edge="start" className={classes.menuButton} aria-label="menu">
                                 <MenuIcon onClick={() => dispatch(openSidebar())} />
@@ -68,6 +69,7 @@ const App: React.FC = () => {
                             </Typography>
                         </Toolbar>
                     </AppBar>
+                    <div className={classes.toolbar} />
                     <Sidebar />
                     <Switch>
                         <Route path="/" exact component={Home} />
