@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Link from '@material-ui/core/Link';
 import HeroImage from '../../images/heroImage.jpeg';
@@ -56,6 +57,7 @@ const Home: React.FC = () => {
     return (
         <React.Fragment>
             <main>
+                <CssBaseline />
                 {/* Hero unit */}
                 <div className={classes.heroContent}>
                     <Container maxWidth="sm">
