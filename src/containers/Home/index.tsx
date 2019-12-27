@@ -101,9 +101,6 @@ const Home: React.FC = () => {
                                     <Button size="small" color="primary">
                                         View
                                     </Button>
-                                    <Button size="small" color="primary">
-                                        Edit
-                                    </Button>
                                 </CardActions>
                             </Card>
                         </Grid>
@@ -126,9 +123,6 @@ const Home: React.FC = () => {
                                     <Button size="small" color="primary">
                                         View
                                     </Button>
-                                    <Button size="small" color="primary">
-                                        Edit
-                                    </Button>
                                 </CardActions>
                             </Card>
                         </Grid>
@@ -150,9 +144,6 @@ const Home: React.FC = () => {
                                 <CardActions>
                                     <Button size="small" color="primary">
                                         View
-                                    </Button>
-                                    <Button size="small" color="primary">
-                                        Edit
                                     </Button>
                                 </CardActions>
                             </Card>
