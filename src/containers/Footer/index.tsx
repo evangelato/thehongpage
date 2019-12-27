@@ -2,6 +2,8 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Link from '@material-ui/core/Link';
 import { makeStyles } from '@material-ui/core/styles';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
 
 const useStyles = makeStyles(theme => ({
     footer: {
@@ -18,18 +20,15 @@ const Footer: React.FC = () => {
     return (
         <React.Fragment>
             <footer className={classes.footer}>
-                <Typography variant="h6" align="center" gutterBottom>
-                    Footer
-                </Typography>
                 <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                    Something here to give the footer a purpose!
+                    <GitHubIcon /> <LinkedInIcon />
                 </Typography>
                 <Typography variant="body2" color="textSecondary" align="center">
                     {'Copyright © '}
                     <Link color="inherit" href="https://material-ui.com/">
-                        Your Website
+                        The Hongpage
                     </Link>{' '}
-                    {new Date().getFullYear()}
+                    2019
                     {'.'}
                 </Typography>
             </footer>

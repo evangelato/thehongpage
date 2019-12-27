@@ -39,7 +39,7 @@ const App: React.FC = () => {
                 overflow: 'hidden',
                 display: 'block',
                 position: 'relative',
-                paddingBottom: '183px',
+                paddingBottom: '149px',
             },
         }),
     );
