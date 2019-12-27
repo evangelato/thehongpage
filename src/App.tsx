@@ -34,6 +34,13 @@ const App: React.FC = () => {
                 flexGrow: 1,
             },
             toolbar: theme.mixins.toolbar,
+            content: {
+                minHeight: '100vh',
+                overflow: 'hidden',
+                display: 'block',
+                position: 'relative',
+                paddingBottom: '183px',
+            },
         }),
     );
     const classes = useStyles();
@@ -56,33 +63,35 @@ const App: React.FC = () => {
 
     return (
         <React.Fragment>
-            <MuiThemeProvider theme={theme}>
-                <CssBaseline />
-                <Router>
-                    <AppBar position="fixed">
-                        <Toolbar>
-                            <IconButton edge="start" className={classes.menuButton} aria-label="menu">
-                                <MenuIcon onClick={() => dispatch(openSidebar())} />
-                            </IconButton>
-                            <Typography variant="h6" className={classes.title}>
-                                The Hongpage
-                            </Typography>
-                        </Toolbar>
-                    </AppBar>
-                    <div className={classes.toolbar} />
-                    <Sidebar />
-                    <Switch>
-                        <Route path="/" exact component={Home} />
-                        <Route path="/about_me" component={AboutMePage} />
-                        <Route path="/work_experience" component={WorkExperiencePage} />
-                        <Route path="/education" exact component={EducationPage} />
-                        <Route path="/personal_projects" exact component={PersonalProjectsPage} />
-                        <Route path="/skills" exact component={SkillsPage} />
-                        <Route path="/hobbies" exact component={HobbiesPage} />
-                    </Switch>
-                    <Footer />
-                </Router>
-            </MuiThemeProvider>
+            <div className={classes.content}>
+                <MuiThemeProvider theme={theme}>
+                    <CssBaseline />
+                    <Router>
+                        <AppBar position="fixed">
+                            <Toolbar>
+                                <IconButton edge="start" className={classes.menuButton} aria-label="menu">
+                                    <MenuIcon onClick={() => dispatch(openSidebar())} />
+                                </IconButton>
+                                <Typography variant="h6" className={classes.title}>
+                                    The Hongpage
+                                </Typography>
+                            </Toolbar>
+                        </AppBar>
+                        <div className={classes.toolbar} />
+                        <Sidebar />
+                        <Switch>
+                            <Route path="/" exact component={Home} />
+                            <Route path="/about_me" component={AboutMePage} />
+                            <Route path="/work_experience" component={WorkExperiencePage} />
+                            <Route path="/education" exact component={EducationPage} />
+                            <Route path="/personal_projects" exact component={PersonalProjectsPage} />
+                            <Route path="/skills" exact component={SkillsPage} />
+                            <Route path="/hobbies" exact component={HobbiesPage} />
+                        </Switch>
+                        <Footer />
+                    </Router>
+                </MuiThemeProvider>
+            </div>
         </React.Fragment>
     );
 };
