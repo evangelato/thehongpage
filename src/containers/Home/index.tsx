@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -98,8 +99,8 @@ const Home: React.FC = () => {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary">
-                                        View
+                                    <Button size="small" color="primary" component={NavLink} to="work_experience">
+                                        Learn More
                                     </Button>
                                 </CardActions>
                             </Card>
@@ -120,8 +121,8 @@ const Home: React.FC = () => {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary">
-                                        View
+                                    <Button size="small" color="primary" component={NavLink} to="/education">
+                                        Learn More
                                     </Button>
                                 </CardActions>
                             </Card>
@@ -142,8 +143,8 @@ const Home: React.FC = () => {
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary">
-                                        View
+                                    <Button size="small" color="primary" component={NavLink} to="personal_projects">
+                                        Learn More
                                     </Button>
                                 </CardActions>
                             </Card>
