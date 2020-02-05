@@ -61,8 +61,8 @@ const Home: React.FC = () => {
                             Welcome to the Hongpage
                         </Typography>
                         <Typography variant="h5" align="center" color="textPrimary" paragraph>
-                            Something short and leading about the collection below—its contents, the creator, etc. Make
-                            it short and sweet, but not too short so folks don&apos;t simply skip over it entirely.
+                            My name is Sung Woo Hong, but you can call me Evan. I like playing games and browsing the
+                            web. So naturally, I make games and websites.
                         </Typography>
                         <div className={classes.heroButtons}>
                             <Grid container spacing={2} justify="center">
@@ -95,7 +95,7 @@ const Home: React.FC = () => {
                                         Work Experience
                                     </Typography>
                                     <Typography>
-                                        This is a media card. You can use this section to describe the content.
+                                        View the various work experiences in game and web development.
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
@@ -116,9 +116,7 @@ const Home: React.FC = () => {
                                     <Typography gutterBottom variant="h5" component="h2">
                                         Education
                                     </Typography>
-                                    <Typography>
-                                        This is a media card. You can use this section to describe the content.
-                                    </Typography>
+                                    <Typography>View my educational background and achievements.</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Button size="small" color="primary" component={NavLink} to="/education">
@@ -138,9 +136,7 @@ const Home: React.FC = () => {
                                     <Typography gutterBottom variant="h5" component="h2">
                                         Personal Projects
                                     </Typography>
-                                    <Typography>
-                                        This is a media card. You can use this section to describe the content.
-                                    </Typography>
+                                    <Typography>View my passion projects and creative endeavour.</Typography>
                                 </CardContent>
                                 <CardActions>
                                     <Button size="small" color="primary" component={NavLink} to="personal_projects">
