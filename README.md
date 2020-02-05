@@ -1,4 +1,23 @@
+# The Hongpage Frontend
+
+A personal portfolio website for Evan Hong.
+
+![ScreenShot](/public/screenshot.png?raw=true "Screen Shot")
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Installation
+Clone the repository with 
+
+```
+git clone https://github.com/evangelato/thehongpage_frontend.git
+```
+
+Install dependencies with
+
+```
+npm install
+```
 
 ## Available Scripts
 
