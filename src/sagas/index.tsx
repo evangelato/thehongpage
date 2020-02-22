@@ -1,7 +1,7 @@
 import { put, takeLatest, all } from 'redux-saga/effects';
 function* fetchAboutMe(): any {
-    const json = yield fetch('http://localhost:3000/api/aboutMe').then(response => response.json());
-    yield put({ type: 'ABOUT_ME_RECEIVED', json: json });
+    const response = yield fetch('http://localhost:4000/api/aboutMe').then(res => res.json());
+    yield put({ type: 'GOT_ABOUT_ME', response: response });
 }
 
 function* actionWatcher(): any {
