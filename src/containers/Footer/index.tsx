@@ -109,7 +109,7 @@ const Footer: React.FC = () => {
                     <Link color="inherit" href="https://material-ui.com/">
                         The Hongpage
                     </Link>{' '}
-                    2019
+                    2020
                     {'.'}
                 </Typography>
             </footer>
