@@ -19,6 +19,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import IconButton from '@material-ui/core/IconButton';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import ScrollToTop from './scrollToTop';
 import './App.css';
 
 const App: React.FC = () => {
@@ -79,15 +80,17 @@ const App: React.FC = () => {
                         </AppBar>
                         <div className={classes.toolbar} />
                         <Sidebar />
-                        <Switch>
-                            <Route path="/" exact component={Home} />
-                            <Route path="/about_me" component={AboutMePage} />
-                            <Route path="/work_experience" component={WorkExperiencePage} />
-                            <Route path="/education" exact component={EducationPage} />
-                            <Route path="/personal_projects" exact component={PersonalProjectsPage} />
-                            <Route path="/skills" exact component={SkillsPage} />
-                            <Route path="/hobbies" exact component={HobbiesPage} />
-                        </Switch>
+                        <ScrollToTop>
+                            <Switch>
+                                <Route path="/" exact component={Home} />
+                                <Route path="/about_me" component={AboutMePage} />
+                                <Route path="/work_experience" component={WorkExperiencePage} />
+                                <Route path="/education" exact component={EducationPage} />
+                                <Route path="/personal_projects" exact component={PersonalProjectsPage} />
+                                <Route path="/skills" exact component={SkillsPage} />
+                                <Route path="/hobbies" exact component={HobbiesPage} />
+                            </Switch>
+                        </ScrollToTop>
                         <Footer />
                     </Router>
                 </MuiThemeProvider>
