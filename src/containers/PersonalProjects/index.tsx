@@ -8,10 +8,14 @@ import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
+import CssBaseline from '@material-ui/core/CssBaseline';
 
 const useStyles = makeStyles(theme => ({
+    title: {
+        textAlign: 'center',
+    },
     cardGrid: {
-        paddingTop: theme.spacing(8),
+        paddingTop: theme.spacing(4),
         paddingBottom: theme.spacing(8),
     },
     card: {
@@ -31,102 +35,101 @@ const PersonalProjects: React.FC = () => {
     const classes = useStyles();
     return (
         <React.Fragment>
-            <Container className={classes.cardGrid} maxWidth="md">
-                {/* End hero unit */}
-                <Grid container spacing={4}>
-                    <Grid item xs={12} sm={6} md={6}>
-                        <Card className={classes.card}>
-                            <CardMedia
-                                className={classes.cardMedia}
-                                image={require('../../images/react-logo.png')}
-                                title="Image title"
-                            />
-                            <CardContent className={classes.cardContent}>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    The Hongpage Frontend
-                                </Typography>
-                                <Typography>
-                                    My personal resume site that you are currently browsing! Created with React.
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Button size="small" color="primary">
-                                    Learn More
-                                </Button>
-                                <Button
-                                    size="small"
-                                    color="primary"
-                                    href="https://github.com/evangelato/thehongpage_frontend"
-                                    target="_blank"
-                                >
-                                    View Source Code
-                                </Button>
-                            </CardActions>
-                        </Card>
+            <CssBaseline />
+            <main>
+                <Container maxWidth="xs">
+                    <div className={classes.title}>
+                        <h1>Personal Projects</h1>
+                    </div>
+                </Container>
+                <Container className={classes.cardGrid} maxWidth="md">
+                    {/* End hero unit */}
+                    <Grid container spacing={4}>
+                        <Grid item xs={12} sm={6} md={6}>
+                            <Card className={classes.card}>
+                                <CardMedia
+                                    className={classes.cardMedia}
+                                    image={require('../../images/react-logo.png')}
+                                    title="Image title"
+                                />
+                                <CardContent className={classes.cardContent}>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        The Hongpage Frontend
+                                    </Typography>
+                                    <Typography>
+                                        My personal resume site that you are currently browsing! Created with React.
+                                    </Typography>
+                                </CardContent>
+                                <CardActions>
+                                    <Button
+                                        size="small"
+                                        color="primary"
+                                        href="https://github.com/evangelato/thehongpage_frontend"
+                                        target="_blank"
+                                    >
+                                        View on GitHub
+                                    </Button>
+                                </CardActions>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={6}>
+                            <Card className={classes.card}>
+                                <CardMedia
+                                    className={classes.cardMedia}
+                                    image={require('../../images/gms2_logo.png')}
+                                    title="Image title"
+                                />
+                                <CardContent className={classes.cardContent}>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        A Butterful Adventure
+                                    </Typography>
+                                    <Typography>
+                                        A platforming game about a Butter melting its way to the five star rotating
+                                        restaurant.
+                                    </Typography>
+                                </CardContent>
+                                <CardActions>
+                                    <Button
+                                        size="small"
+                                        color="primary"
+                                        href="https://github.com/evangelato/AButterfulAdventure"
+                                        target="_blank"
+                                    >
+                                        View on GitHub
+                                    </Button>
+                                </CardActions>
+                            </Card>
+                        </Grid>
+                        <Grid item xs={12} sm={6} md={6}>
+                            <Card className={classes.card}>
+                                <CardMedia
+                                    className={classes.cardMedia}
+                                    image={require('../../images/nodejs_logo.jpg')}
+                                    title="Image title"
+                                />
+                                <CardContent className={classes.cardContent}>
+                                    <Typography gutterBottom variant="h5" component="h2">
+                                        The Hongpage Backend
+                                    </Typography>
+                                    <Typography>
+                                        The backend for the Hongpage. Created using NodeJs and ExpressJS.
+                                    </Typography>
+                                </CardContent>
+                                <CardActions>
+                                    <Button
+                                        size="small"
+                                        color="primary"
+                                        href="https://github.com/evangelato/thehongpage_backend"
+                                        target="_blank"
+                                    >
+                                        View on GitHUb
+                                    </Button>
+                                </CardActions>
+                            </Card>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={6} md={6}>
-                        <Card className={classes.card}>
-                            <CardMedia
-                                className={classes.cardMedia}
-                                image={require('../../images/gms2_logo.png')}
-                                title="Image title"
-                            />
-                            <CardContent className={classes.cardContent}>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    A Butterful Adventure
-                                </Typography>
-                                <Typography>
-                                    A platforming game about a Butter melting its way to the five star rotating
-                                    restaurant.
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Button size="small" color="primary">
-                                    Learn More
-                                </Button>
-                                <Button
-                                    size="small"
-                                    color="primary"
-                                    href="https://github.com/evangelato/AButterfulAdventure"
-                                    target="_blank"
-                                >
-                                    View Source Code
-                                </Button>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                    <Grid item xs={12} sm={6} md={6}>
-                        <Card className={classes.card}>
-                            <CardMedia
-                                className={classes.cardMedia}
-                                image={require('../../images/nodejs_logo.jpg')}
-                                title="Image title"
-                            />
-                            <CardContent className={classes.cardContent}>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    The Hongpage Backend
-                                </Typography>
-                                <Typography>
-                                    The backend for the Hongpage. Created using NodeJs and ExpressJS.
-                                </Typography>
-                            </CardContent>
-                            <CardActions>
-                                <Button size="small" color="primary">
-                                    Learn More
-                                </Button>
-                                <Button
-                                    size="small"
-                                    color="primary"
-                                    href="https://github.com/evangelato/thehongpage_backend"
-                                    target="_blank"
-                                >
-                                    View Source Code
-                                </Button>
-                            </CardActions>
-                        </Card>
-                    </Grid>
-                </Grid>
-            </Container>
+                </Container>
+            </main>
         </React.Fragment>
     );
 };
