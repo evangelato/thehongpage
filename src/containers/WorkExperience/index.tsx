@@ -1,4 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import _ from 'lodash';
+import { useDispatch, useSelector } from 'react-redux';
+import { getWorkExperience } from '../../actions/workExperienceActions';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
 import { makeStyles } from '@material-ui/core/styles';
 import 'react-vertical-timeline-component/style.min.css';
@@ -15,6 +18,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const WorkExperience: React.FC = () => {
+    const dispatch = useDispatch();
+    const data = useSelector((state: any) => state.WorkExperience.data);
+    useEffect(() => {
+        dispatch(getWorkExperience());
+    }, [dispatch]);
     const classes = useStyles();
     return (
         <React.Fragment>
@@ -25,37 +33,28 @@ const WorkExperience: React.FC = () => {
             </Container>
             <Container>
                 <VerticalTimeline>
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
-                        date="2011 - present"
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        icon={<WorkIcon />}
-                    >
-                        <h3 className="vertical-timeline-element-title">Republic of Korea, Cyber Operations Command</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Software Developer</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet purus ut lectus
-                            tincidunt imperdiet. Nulla sed velit quis purus vulputate bibendum. Duis ut est at nibh
-                            mollis egestas. Sed egestas leo ut nulla varius, id efficitur dui commodo.
-                        </p>
-                    </VerticalTimelineElement>
-                    <VerticalTimelineElement
-                        className="vertical-timeline-element--work"
-                        contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        date="2010 - 2011"
-                        iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
-                        icon={<WorkIcon />}
-                    >
-                        <h3 className="vertical-timeline-element-title">E4Net</h3>
-                        <h4 className="vertical-timeline-element-subtitle">Software Develper</h4>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis laoreet purus ut lectus
-                            tincidunt imperdiet. Nulla sed velit quis purus vulputate bibendum. Duis ut est at nibh
-                            mollis egestas. Sed egestas leo ut nulla varius, id efficitur dui commodo.
-                        </p>
-                    </VerticalTimelineElement>
+                    {_.map(data, function(value) {
+                        return (
+                            <VerticalTimelineElement
+                                className="vertical-timeline-element--work"
+                                contentStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+                                contentArrowStyle={{ borderRight: '7px solid  rgb(33, 150, 243)' }}
+                                date={value.duration ? value.duration : ''}
+                                iconStyle={{ background: 'rgb(33, 150, 243)', color: '#fff' }}
+                                icon={<WorkIcon />}
+                                key={value._id ? value._id : ''}
+                            >
+                                <h3 className="vertical-timeline-element-title">
+                                    {value.companyName ? value.companyName : ''}
+                                </h3>
+                                <h4 className="vertical-timeline-element-subtitle">
+                                    {value.jobTitle ? value.jobTitle : ''}
+                                </h4>
+                                <p>{value.description ? value.description : ''}</p>
+                            </VerticalTimelineElement>
+                        );
+                    })}
+                    ;
                 </VerticalTimeline>
             </Container>
         </React.Fragment>
