@@ -1,4 +1,4 @@
-import { OPEN_SIDEBAR, CLOSE_SIDEBAR, SidebarActionTypes } from '../actions';
+import { OPEN_SIDEBAR, CLOSE_SIDEBAR, SidebarActionTypes } from '../actions/sidebarActions';
 
 interface SidebarState {
     isSidebarOpen: boolean;

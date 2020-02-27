@@ -1,4 +1,4 @@
-import { GET_ABOUT_ME, GOT_ABOUT_ME, AboutMeActionTypes } from '../actions';
+import { GET_ABOUT_ME, GOT_ABOUT_ME, AboutMeActionTypes } from '../actions/aboutMeActions';
 
 interface AboutMeState {
     loading: boolean;
@@ -10,14 +10,13 @@ const initialState = {
     content: '',
 };
 
-function sidebarReducer(state = initialState, action: AboutMeActionTypes): AboutMeState {
+function aboutMeReducer(state = initialState, action: AboutMeActionTypes): AboutMeState {
     switch (action.type) {
         case GET_ABOUT_ME:
             return Object.assign({}, state, {
                 loading: true,
             });
         case GOT_ABOUT_ME:
-            console.log('action', action);
             return Object.assign({}, state, {
                 loading: false,
                 content: action.response[0].content,
@@ -27,4 +26,4 @@ function sidebarReducer(state = initialState, action: AboutMeActionTypes): About
     }
 }
 
-export default sidebarReducer;
+export default aboutMeReducer;

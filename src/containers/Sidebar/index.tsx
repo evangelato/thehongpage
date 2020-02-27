@@ -1,7 +1,7 @@
 import React from 'react';
 import './Sidebar.css';
 import { NavLink, useLocation } from 'react-router-dom';
-import { closeSidebar } from '../../actions';
+import { closeSidebar } from '../../actions/sidebarActions';
 import { useDispatch, useSelector } from 'react-redux';
 import Drawer from '@material-ui/core/Drawer';
 import List from '@material-ui/core/List';

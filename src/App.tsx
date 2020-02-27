@@ -10,7 +10,7 @@ import PersonalProjectsPage from './containers/PersonalProjects';
 import SkillsPage from './containers/Skills';
 import HobbiesPage from './containers/Hobbies';
 import Footer from './containers/Footer';
-import { openSidebar } from './actions';
+import { openSidebar } from './actions/sidebarActions';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
