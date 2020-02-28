@@ -2,11 +2,11 @@ import { GET_WORK_EXPERIENCE, GOT_WORK_EXPERIENCE, WorkExperienceActionTypes } f
 
 interface WorkExperienceState {
     loading: boolean;
-    data: string;
+    data: any;
 }
 
 const initialState = {
-    loading: true,
+    loading: false,
     data: '',
 };
 

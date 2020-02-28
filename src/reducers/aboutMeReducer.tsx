@@ -6,7 +6,7 @@ interface AboutMeState {
 }
 
 const initialState = {
-    loading: true,
+    loading: false,
     content: '',
 };
 
