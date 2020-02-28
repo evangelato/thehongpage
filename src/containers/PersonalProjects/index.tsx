@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 
@@ -28,6 +29,14 @@ const useStyles = makeStyles(theme => ({
     },
     cardContent: {
         flexGrow: 1,
+    },
+    chip: {
+        paddingTop: theme.spacing(1),
+        display: 'flex',
+        flexWrap: 'wrap',
+        '& > *': {
+            margin: theme.spacing(0.5),
+        },
     },
 }));
 
@@ -59,7 +68,14 @@ const PersonalProjects: React.FC = () => {
                                     <Typography>
                                         My personal resume site that you are currently browsing! Created with React.
                                     </Typography>
+                                    <div className={classes.chip}>
+                                        {' '}
+                                        <Chip label="React" color="primary" />
+                                        <Chip label="Redux" color="primary" />
+                                        <Chip label="Typescript" color="primary" />
+                                    </div>
                                 </CardContent>
+
                                 <CardActions>
                                     <Button
                                         size="small"
@@ -87,6 +103,11 @@ const PersonalProjects: React.FC = () => {
                                         A platforming game about a Butter melting its way to the five star rotating
                                         restaurant.
                                     </Typography>
+                                    <div className={classes.chip}>
+                                        {' '}
+                                        <Chip label="GameMaker Studio 2" color="primary" />
+                                        <Chip label="Aseprite" color="primary" />
+                                    </div>
                                 </CardContent>
                                 <CardActions>
                                     <Button
@@ -114,6 +135,12 @@ const PersonalProjects: React.FC = () => {
                                     <Typography>
                                         The backend for the Hongpage. Created using NodeJs and ExpressJS.
                                     </Typography>
+                                    <div className={classes.chip}>
+                                        {' '}
+                                        <Chip label="ExpressJS" color="primary" />
+                                        <Chip label="MongoDB" color="primary" />
+                                        <Chip label="Typescript" color="primary" />
+                                    </div>
                                 </CardContent>
                                 <CardActions>
                                     <Button
