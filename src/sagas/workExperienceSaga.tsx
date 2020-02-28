@@ -1,6 +1,8 @@
 import { put, takeLatest, all } from 'redux-saga/effects';
+import { getWorkExperience } from '../apis/workExperienceApi';
+
 function* fetchWorkExperiences(): any {
-    const response = yield fetch('http://localhost:4000/api/workExperiences').then(res => res.json());
+    const response = yield getWorkExperience();
     yield put({ type: 'GOT_WORK_EXPERIENCE', response: response });
 }
 

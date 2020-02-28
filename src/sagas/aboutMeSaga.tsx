@@ -1,6 +1,8 @@
 import { put, takeLatest, all } from 'redux-saga/effects';
+import { getAboutMe } from '../apis/aboutMeApi';
+
 function* fetchAboutMe(): any {
-    const response = yield fetch('http://localhost:4000/api/aboutMe').then(res => res.json());
+    const response = yield getAboutMe();
     yield put({ type: 'GOT_ABOUT_ME', response: response });
 }
 
