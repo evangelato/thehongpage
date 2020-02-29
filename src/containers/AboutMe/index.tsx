@@ -33,10 +33,10 @@ const useStyles = makeStyles(theme => ({
 
 const AboutMe: React.FC = () => {
     const dispatch = useDispatch();
-    const content = useSelector((state: any) => state.AboutMe.content);
     useEffect(() => {
         dispatch(getAboutMe());
     }, [dispatch]);
+    const content = useSelector((state: any) => state.AboutMe.content);
     const classes = useStyles();
     return (
         <React.Fragment>

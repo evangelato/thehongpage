@@ -17,8 +17,8 @@ import BuildIcon from '@material-ui/icons/Build';
 import PaletteIcon from '@material-ui/icons/Palette';
 
 const Sidebar: React.FC = () => {
-    const isSidebarOpen = useSelector((state: any) => state.Sidebar.isSidebarOpen);
     const dispatch = useDispatch();
+    const isSidebarOpen = useSelector((state: any) => state.Sidebar.isSidebarOpen);
     const { pathname } = useLocation();
 
     return (

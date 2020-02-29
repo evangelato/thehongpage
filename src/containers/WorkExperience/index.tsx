@@ -19,10 +19,10 @@ const useStyles = makeStyles(theme => ({
 
 const WorkExperience: React.FC = () => {
     const dispatch = useDispatch();
-    const data = useSelector((state: any) => state.WorkExperience.data);
     useEffect(() => {
         dispatch(getWorkExperience());
     }, [dispatch]);
+    const data = useSelector((state: any) => state.WorkExperience.data);
     const classes = useStyles();
     return (
         <React.Fragment>

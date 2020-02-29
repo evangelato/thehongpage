@@ -12,7 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { getProject } from '../../actions/projectActions';
 import { useDispatch, useSelector } from 'react-redux';
-import LoadingPage from '../Loading';
+import LoadingPage from '../withLoading';
 import _ from 'lodash';
 
 const useStyles = makeStyles(theme => ({
@@ -46,11 +46,11 @@ const useStyles = makeStyles(theme => ({
 
 const PersonalProjects: React.FC = () => {
     const dispatch = useDispatch();
-    const data = useSelector((state: any) => state.Project.data);
-    const isLoading = useSelector((state: any) => state.Project.loading);
     useEffect(() => {
         dispatch(getProject());
     }, [dispatch]);
+    const data = useSelector((state: any) => state.Project.data);
+    const isLoading = useSelector((state: any) => state.Project.loading);
     const classes = useStyles();
     return !isLoading ? (
         <React.Fragment>
@@ -64,7 +64,7 @@ const PersonalProjects: React.FC = () => {
                 <Container className={classes.cardGrid} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
-                        {data || data.length > 0 ? (
+                        {data.length > 0 ? (
                             _.map(data, function(projectData) {
                                 return (
                                     <Grid item xs={12} sm={6} md={6} key={projectData.title}>
