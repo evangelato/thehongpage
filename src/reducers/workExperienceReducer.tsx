@@ -1,5 +1,5 @@
 import {
-    GET_WORK_EXPERIENCE,
+    GET_WORK_EXPERIENCE_REQUEST,
     GET_WORK_EXPERIENCE_SUCCESS,
     GET_WORK_EXPERIENCE_FAILURE,
     WorkExperienceActionTypes,
@@ -19,7 +19,7 @@ const initialState = {
 
 function workExperienceReducer(state = initialState, action: WorkExperienceActionTypes): WorkExperienceState {
     switch (action.type) {
-        case GET_WORK_EXPERIENCE:
+        case GET_WORK_EXPERIENCE_REQUEST:
             return Object.assign({}, state, {
                 loading: true,
             });

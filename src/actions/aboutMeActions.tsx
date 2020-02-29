@@ -1,7 +1,7 @@
 /*
  * About Me Action Types
  */
-export const GET_ABOUT_ME = 'GET_ABOUT_ME';
+export const GET_ABOUT_ME_REQUEST = 'GET_ABOUT_ME_REQUEST';
 export const GET_ABOUT_ME_SUCCESS = 'GET_ABOUT_ME_SUCCESS';
 export const GET_ABOUT_ME_FAILURE = 'GET_ABOUT_ME_FAILURE';
 
@@ -11,8 +11,8 @@ interface AboutMe {
     date: string;
 }
 
-interface GetAboutMeAction {
-    type: typeof GET_ABOUT_ME;
+interface GetAboutMeRequestAction {
+    type: typeof GET_ABOUT_ME_REQUEST;
 }
 
 interface GetAboutMeSuccessAction {
@@ -24,11 +24,11 @@ interface GetAboutMeFailureAction {
     type: typeof GET_ABOUT_ME_FAILURE;
 }
 
-export type AboutMeActionTypes = GetAboutMeAction | GetAboutMeSuccessAction | GetAboutMeFailureAction;
+export type AboutMeActionTypes = GetAboutMeRequestAction | GetAboutMeSuccessAction | GetAboutMeFailureAction;
 
 /*
  * About Me Action Creators
  */
 export function getAboutMe(): any {
-    return { type: GET_ABOUT_ME };
+    return { type: GET_ABOUT_ME_REQUEST };
 }

@@ -1,4 +1,9 @@
-import { GET_PROJECT, GET_PROJECT_SUCCESS, GET_PROJECT_FAILURE, ProjectActionTypes } from '../actions/projectActions';
+import {
+    GET_PROJECT_REQUEST,
+    GET_PROJECT_SUCCESS,
+    GET_PROJECT_FAILURE,
+    ProjectActionTypes,
+} from '../actions/projectActions';
 
 interface ProjectState {
     loading: boolean;
@@ -23,7 +28,7 @@ const initialState = {
 
 function projectReducer(state = initialState, action: ProjectActionTypes): ProjectState {
     switch (action.type) {
-        case GET_PROJECT:
+        case GET_PROJECT_REQUEST:
             return Object.assign({}, state, {
                 loading: true,
             });

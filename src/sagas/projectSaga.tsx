@@ -1,6 +1,6 @@
 import { put, takeLatest, all } from 'redux-saga/effects';
 import { getProject } from '../apis/projectApi';
-import { GET_PROJECT, GET_PROJECT_SUCCESS, GET_PROJECT_FAILURE } from '../actions/projectActions';
+import { GET_PROJECT_REQUEST, GET_PROJECT_SUCCESS, GET_PROJECT_FAILURE } from '../actions/projectActions';
 
 function* fetchProjects(): any {
     try {
@@ -12,7 +12,7 @@ function* fetchProjects(): any {
 }
 
 function* actionWatcher(): any {
-    yield takeLatest(GET_PROJECT, fetchProjects);
+    yield takeLatest(GET_PROJECT_REQUEST, fetchProjects);
 }
 
 export default function* projectSaga(): any {

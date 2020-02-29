@@ -1,5 +1,5 @@
 import {
-    GET_ABOUT_ME,
+    GET_ABOUT_ME_REQUEST,
     GET_ABOUT_ME_SUCCESS,
     GET_ABOUT_ME_FAILURE,
     AboutMeActionTypes,
@@ -19,7 +19,7 @@ const initialState = {
 
 function aboutMeReducer(state = initialState, action: AboutMeActionTypes): AboutMeState {
     switch (action.type) {
-        case GET_ABOUT_ME:
+        case GET_ABOUT_ME_REQUEST:
             return Object.assign({}, state, {
                 loading: true,
             });

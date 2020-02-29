@@ -2,7 +2,7 @@
  * Project Action Types
  */
 
-export const GET_PROJECT = 'GET_PROJECT';
+export const GET_PROJECT_REQUEST = 'GET_PROJECT_REQUEST';
 export const GET_PROJECT_SUCCESS = 'GET_PROJECT_SUCCESS';
 export const GET_PROJECT_FAILURE = 'GET_PROJECT_FAILURE';
 
@@ -21,8 +21,8 @@ interface Project {
     order: number;
 }
 
-interface GetProjectAction {
-    type: typeof GET_PROJECT;
+interface GetProjectRequestAction {
+    type: typeof GET_PROJECT_REQUEST;
 }
 
 interface GetProjectSuccessAction {
@@ -34,11 +34,11 @@ interface GetProjectFailureAction {
     type: typeof GET_PROJECT_FAILURE;
 }
 
-export type ProjectActionTypes = GetProjectAction | GetProjectSuccessAction | GetProjectFailureAction;
+export type ProjectActionTypes = GetProjectRequestAction | GetProjectSuccessAction | GetProjectFailureAction;
 
 /*
  * Project Action Creators
  */
 export function getProject(): any {
-    return { type: GET_PROJECT };
+    return { type: GET_PROJECT_REQUEST };
 }
