@@ -1,10 +1,14 @@
 import { put, takeLatest, all } from 'redux-saga/effects';
 import { getAboutMe } from '../apis/aboutMeApi';
-import { GOT_ABOUT_ME, GET_ABOUT_ME } from '../actions/aboutMeActions';
+import { GET_ABOUT_ME, GET_ABOUT_ME_SUCCESS, GET_ABOUT_ME_FAIL } from '../actions/aboutMeActions';
 
 function* fetchAboutMe(): any {
-    const response = yield getAboutMe();
-    yield put({ type: GOT_ABOUT_ME, response: response });
+    try {
+        const response = yield getAboutMe();
+        yield put({ type: GET_ABOUT_ME_SUCCESS, response: response });
+    } catch (error) {
+        yield put({ type: GET_ABOUT_ME_FAIL, error });
+    }
 }
 
 function* actionWatcher(): any {

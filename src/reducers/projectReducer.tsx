@@ -1,12 +1,14 @@
-import { GET_PROJECT, GOT_PROJECT, ProjectActionTypes } from '../actions/projectActions';
+import { GET_PROJECT, GET_PROJECT_SUCCESS, GET_PROJECT_FAIL, ProjectActionTypes } from '../actions/projectActions';
 
 interface ProjectState {
     loading: boolean;
+    error: boolean;
     data: any;
 }
 
 const initialState = {
     loading: false,
+    error: false,
     data: [
         {
             title: '',
@@ -25,10 +27,16 @@ function projectReducer(state = initialState, action: ProjectActionTypes): Proje
             return Object.assign({}, state, {
                 loading: true,
             });
-        case GOT_PROJECT:
+        case GET_PROJECT_SUCCESS:
             return Object.assign({}, state, {
                 loading: false,
+                error: false,
                 data: action.response,
+            });
+        case GET_PROJECT_FAIL:
+            return Object.assign({}, state, {
+                loading: false,
+                error: true,
             });
         default:
             return state;

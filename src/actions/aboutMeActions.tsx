@@ -2,7 +2,8 @@
  * About Me Action Types
  */
 export const GET_ABOUT_ME = 'GET_ABOUT_ME';
-export const GOT_ABOUT_ME = 'GOT_ABOUT_ME';
+export const GET_ABOUT_ME_SUCCESS = 'GET_ABOUT_ME_SUCCESS';
+export const GET_ABOUT_ME_FAIL = 'GET_ABOUT_ME_FAIL';
 
 interface AboutMe {
     _id: string;
@@ -14,12 +15,16 @@ interface GetAboutMeAction {
     type: typeof GET_ABOUT_ME;
 }
 
-interface GotAboutMeAction {
-    type: typeof GOT_ABOUT_ME;
+interface GetAboutMeSuccessAction {
+    type: typeof GET_ABOUT_ME_SUCCESS;
     response: AboutMe[];
 }
 
-export type AboutMeActionTypes = GetAboutMeAction | GotAboutMeAction;
+interface GetAboutMeFailAction {
+    type: typeof GET_ABOUT_ME_FAIL;
+}
+
+export type AboutMeActionTypes = GetAboutMeAction | GetAboutMeSuccessAction | GetAboutMeFailAction;
 
 /*
  * About Me Action Creators

@@ -1,10 +1,18 @@
 import { put, takeLatest, all } from 'redux-saga/effects';
 import { getWorkExperience } from '../apis/workExperienceApi';
-import { GOT_WORK_EXPERIENCE, GET_WORK_EXPERIENCE } from '../actions/workExperienceActions';
+import {
+    GET_WORK_EXPERIENCE,
+    GET_WORK_EXPERIENCE_SUCCESS,
+    GET_WORK_EXPERIENCE_FAIL,
+} from '../actions/workExperienceActions';
 
 function* fetchWorkExperiences(): any {
-    const response = yield getWorkExperience();
-    yield put({ type: GOT_WORK_EXPERIENCE, response: response });
+    try {
+        const response = yield getWorkExperience();
+        yield put({ type: GET_WORK_EXPERIENCE_SUCCESS, response: response });
+    } catch (error) {
+        yield put({ type: GET_WORK_EXPERIENCE_FAIL, error });
+    }
 }
 
 function* actionWatcher(): any {

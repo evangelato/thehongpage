@@ -1,10 +1,14 @@
 import { put, takeLatest, all } from 'redux-saga/effects';
 import { getProject } from '../apis/projectApi';
-import { GOT_PROJECT, GET_PROJECT } from '../actions/projectActions';
+import { GET_PROJECT, GET_PROJECT_SUCCESS, GET_PROJECT_FAIL } from '../actions/projectActions';
 
 function* fetchProjects(): any {
-    const response = yield getProject();
-    yield put({ type: GOT_PROJECT, response: response });
+    try {
+        const response = yield getProject();
+        yield put({ type: GET_PROJECT_SUCCESS, response: response });
+    } catch (error) {
+        yield put({ type: GET_PROJECT_FAIL, error });
+    }
 }
 
 function* actionWatcher(): any {

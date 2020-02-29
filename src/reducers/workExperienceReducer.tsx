@@ -1,12 +1,19 @@
-import { GET_WORK_EXPERIENCE, GOT_WORK_EXPERIENCE, WorkExperienceActionTypes } from '../actions/workExperienceActions';
+import {
+    GET_WORK_EXPERIENCE,
+    GET_WORK_EXPERIENCE_SUCCESS,
+    GET_WORK_EXPERIENCE_FAIL,
+    WorkExperienceActionTypes,
+} from '../actions/workExperienceActions';
 
 interface WorkExperienceState {
     loading: boolean;
+    error: boolean;
     data: any;
 }
 
 const initialState = {
     loading: false,
+    error: false,
     data: '',
 };
 
@@ -16,10 +23,15 @@ function workExperienceReducer(state = initialState, action: WorkExperienceActio
             return Object.assign({}, state, {
                 loading: true,
             });
-        case GOT_WORK_EXPERIENCE:
+        case GET_WORK_EXPERIENCE_SUCCESS:
             return Object.assign({}, state, {
                 loading: false,
                 data: action.response,
+            });
+        case GET_WORK_EXPERIENCE_FAIL:
+            return Object.assign({}, state, {
+                loading: false,
+                error: true,
             });
         default:
             return state;

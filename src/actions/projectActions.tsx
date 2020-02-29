@@ -3,7 +3,8 @@
  */
 
 export const GET_PROJECT = 'GET_PROJECT';
-export const GOT_PROJECT = 'GOT_PROJECT';
+export const GET_PROJECT_SUCCESS = 'GET_PROJECT_SUCCESS';
+export const GET_PROJECT_FAIL = 'GET_PROJECT_FAIL';
 
 interface ExternalUrls {
     sitename: string;
@@ -24,12 +25,16 @@ interface GetProjectAction {
     type: typeof GET_PROJECT;
 }
 
-interface GotProjecAction {
-    type: typeof GOT_PROJECT;
+interface GetProjectSuccessAction {
+    type: typeof GET_PROJECT_SUCCESS;
     response: Project[];
 }
 
-export type ProjectActionTypes = GetProjectAction | GotProjecAction;
+interface GetProjectFailAction {
+    type: typeof GET_PROJECT_FAIL;
+}
+
+export type ProjectActionTypes = GetProjectAction | GetProjectSuccessAction | GetProjectFailAction;
 
 /*
  * Project Action Creators
