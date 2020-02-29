@@ -12,6 +12,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { getProject } from '../../actions/projectActions';
 import { useDispatch, useSelector } from 'react-redux';
+import LoadingPage from '../Loading';
 import _ from 'lodash';
 
 const useStyles = makeStyles(theme => ({
@@ -46,11 +47,12 @@ const useStyles = makeStyles(theme => ({
 const PersonalProjects: React.FC = () => {
     const dispatch = useDispatch();
     const data = useSelector((state: any) => state.Project.data);
+    const isLoading = useSelector((state: any) => state.Project.loading);
     useEffect(() => {
         dispatch(getProject());
     }, [dispatch]);
     const classes = useStyles();
-    return (
+    return !isLoading ? (
         <React.Fragment>
             <CssBaseline />
             <main>
@@ -120,6 +122,8 @@ const PersonalProjects: React.FC = () => {
                 </Container>
             </main>
         </React.Fragment>
+    ) : (
+        <LoadingPage />
     );
 };
 
