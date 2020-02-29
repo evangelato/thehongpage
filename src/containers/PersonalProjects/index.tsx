@@ -62,7 +62,7 @@ const PersonalProjects: React.FC = () => {
                 <Container className={classes.cardGrid} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
-                        {data.length > 0 ? (
+                        {data || data.length > 0 ? (
                             _.map(data, function(projectData) {
                                 return (
                                     <Grid item xs={12} sm={6} md={6} key={projectData.title}>
