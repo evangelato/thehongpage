@@ -15,9 +15,11 @@ const useStyles = makeStyles(() => ({
 const Loading: React.FC = () => {
     const classes = useStyles();
     return (
-        <div className={classes.root}>
-            <CircularProgress size={70} />
-        </div>
+        <React.Fragment>
+            <div className={classes.root}>
+                <CircularProgress size={70} />
+            </div>
+        </React.Fragment>
     );
 };
 

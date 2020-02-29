@@ -3,7 +3,7 @@
  */
 export const GET_ABOUT_ME = 'GET_ABOUT_ME';
 export const GET_ABOUT_ME_SUCCESS = 'GET_ABOUT_ME_SUCCESS';
-export const GET_ABOUT_ME_FAIL = 'GET_ABOUT_ME_FAIL';
+export const GET_ABOUT_ME_FAILURE = 'GET_ABOUT_ME_FAILURE';
 
 interface AboutMe {
     _id: string;
@@ -20,11 +20,11 @@ interface GetAboutMeSuccessAction {
     response: AboutMe[];
 }
 
-interface GetAboutMeFailAction {
-    type: typeof GET_ABOUT_ME_FAIL;
+interface GetAboutMeFailureAction {
+    type: typeof GET_ABOUT_ME_FAILURE;
 }
 
-export type AboutMeActionTypes = GetAboutMeAction | GetAboutMeSuccessAction | GetAboutMeFailAction;
+export type AboutMeActionTypes = GetAboutMeAction | GetAboutMeSuccessAction | GetAboutMeFailureAction;
 
 /*
  * About Me Action Creators

@@ -3,7 +3,7 @@ import { getWorkExperience } from '../apis/workExperienceApi';
 import {
     GET_WORK_EXPERIENCE,
     GET_WORK_EXPERIENCE_SUCCESS,
-    GET_WORK_EXPERIENCE_FAIL,
+    GET_WORK_EXPERIENCE_FAILURE,
 } from '../actions/workExperienceActions';
 
 function* fetchWorkExperiences(): any {
@@ -11,7 +11,7 @@ function* fetchWorkExperiences(): any {
         const response = yield getWorkExperience();
         yield put({ type: GET_WORK_EXPERIENCE_SUCCESS, response: response });
     } catch (error) {
-        yield put({ type: GET_WORK_EXPERIENCE_FAIL, error });
+        yield put({ type: GET_WORK_EXPERIENCE_FAILURE, error });
     }
 }
 

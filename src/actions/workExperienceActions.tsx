@@ -3,7 +3,7 @@
  */
 export const GET_WORK_EXPERIENCE = 'GET_WORK_EXPERIENCE';
 export const GET_WORK_EXPERIENCE_SUCCESS = 'GET_WORK_EXPERIENCE_SUCCESS';
-export const GET_WORK_EXPERIENCE_FAIL = 'GET_WORK_EXPERIENCE_FAIL';
+export const GET_WORK_EXPERIENCE_FAILURE = 'GET_WORK_EXPERIENCE_FAILURE';
 
 interface WorkExperience {
     _id: string;
@@ -22,14 +22,14 @@ interface GetWorkExperienceSuccessAction {
     response: WorkExperience[];
 }
 
-interface GetWorkExperienceFailAction {
-    type: typeof GET_WORK_EXPERIENCE_FAIL;
+interface GetWorkExperienceFailureAction {
+    type: typeof GET_WORK_EXPERIENCE_FAILURE;
 }
 
 export type WorkExperienceActionTypes =
     | GetWorkExperienceAction
     | GetWorkExperienceSuccessAction
-    | GetWorkExperienceFailAction;
+    | GetWorkExperienceFailureAction;
 
 /*
  * Work Experience Action Creators

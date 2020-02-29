@@ -1,7 +1,7 @@
 import {
     GET_WORK_EXPERIENCE,
     GET_WORK_EXPERIENCE_SUCCESS,
-    GET_WORK_EXPERIENCE_FAIL,
+    GET_WORK_EXPERIENCE_FAILURE,
     WorkExperienceActionTypes,
 } from '../actions/workExperienceActions';
 
@@ -28,7 +28,7 @@ function workExperienceReducer(state = initialState, action: WorkExperienceActio
                 loading: false,
                 data: action.response,
             });
-        case GET_WORK_EXPERIENCE_FAIL:
+        case GET_WORK_EXPERIENCE_FAILURE:
             return Object.assign({}, state, {
                 loading: false,
                 error: true,

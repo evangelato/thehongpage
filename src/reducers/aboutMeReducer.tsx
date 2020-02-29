@@ -1,4 +1,9 @@
-import { GET_ABOUT_ME, GET_ABOUT_ME_SUCCESS, GET_ABOUT_ME_FAIL, AboutMeActionTypes } from '../actions/aboutMeActions';
+import {
+    GET_ABOUT_ME,
+    GET_ABOUT_ME_SUCCESS,
+    GET_ABOUT_ME_FAILURE,
+    AboutMeActionTypes,
+} from '../actions/aboutMeActions';
 
 interface AboutMeState {
     loading: boolean;
@@ -23,7 +28,7 @@ function aboutMeReducer(state = initialState, action: AboutMeActionTypes): About
                 loading: false,
                 content: action.response[0].content,
             });
-        case GET_ABOUT_ME_FAIL:
+        case GET_ABOUT_ME_FAILURE:
             return Object.assign({}, state, {
                 loading: false,
                 error: true,

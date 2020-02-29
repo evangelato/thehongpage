@@ -1,4 +1,4 @@
-import { GET_PROJECT, GET_PROJECT_SUCCESS, GET_PROJECT_FAIL, ProjectActionTypes } from '../actions/projectActions';
+import { GET_PROJECT, GET_PROJECT_SUCCESS, GET_PROJECT_FAILURE, ProjectActionTypes } from '../actions/projectActions';
 
 interface ProjectState {
     loading: boolean;
@@ -33,7 +33,7 @@ function projectReducer(state = initialState, action: ProjectActionTypes): Proje
                 error: false,
                 data: action.response,
             });
-        case GET_PROJECT_FAIL:
+        case GET_PROJECT_FAILURE:
             return Object.assign({}, state, {
                 loading: false,
                 error: true,

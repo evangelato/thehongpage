@@ -4,7 +4,7 @@
 
 export const GET_PROJECT = 'GET_PROJECT';
 export const GET_PROJECT_SUCCESS = 'GET_PROJECT_SUCCESS';
-export const GET_PROJECT_FAIL = 'GET_PROJECT_FAIL';
+export const GET_PROJECT_FAILURE = 'GET_PROJECT_FAILURE';
 
 interface ExternalUrls {
     sitename: string;
@@ -30,11 +30,11 @@ interface GetProjectSuccessAction {
     response: Project[];
 }
 
-interface GetProjectFailAction {
-    type: typeof GET_PROJECT_FAIL;
+interface GetProjectFailureAction {
+    type: typeof GET_PROJECT_FAILURE;
 }
 
-export type ProjectActionTypes = GetProjectAction | GetProjectSuccessAction | GetProjectFailAction;
+export type ProjectActionTypes = GetProjectAction | GetProjectSuccessAction | GetProjectFailureAction;
 
 /*
  * Project Action Creators
