@@ -6,14 +6,10 @@ import {
 } from '../actions/projectActions';
 
 interface ProjectState {
-    loading: boolean;
-    error: boolean;
     data: any;
 }
 
 const initialState = {
-    loading: false,
-    error: false,
     data: [
         {
             title: '',
@@ -26,26 +22,23 @@ const initialState = {
     ],
 };
 
-function projectReducer(state = initialState, action: ProjectActionTypes): ProjectState {
+const projectReducer = (state = initialState, action: ProjectActionTypes): ProjectState => {
     switch (action.type) {
         case GET_PROJECT_REQUEST:
             return Object.assign({}, state, {
-                loading: true,
+                data: '',
             });
         case GET_PROJECT_SUCCESS:
             return Object.assign({}, state, {
-                loading: false,
-                error: false,
                 data: action.response,
             });
         case GET_PROJECT_FAILURE:
             return Object.assign({}, state, {
-                loading: false,
-                error: true,
+                data: '',
             });
         default:
             return state;
     }
-}
+};
 
 export default projectReducer;

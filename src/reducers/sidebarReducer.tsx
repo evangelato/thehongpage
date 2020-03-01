@@ -8,7 +8,7 @@ const initialState = {
     isSidebarOpen: false,
 };
 
-function sidebarReducer(state = initialState, action: SidebarActionTypes): SidebarState {
+const sidebarReducer = (state = initialState, action: SidebarActionTypes): SidebarState => {
     switch (action.type) {
         case OPEN_SIDEBAR:
             return Object.assign({}, state, {
@@ -21,6 +21,6 @@ function sidebarReducer(state = initialState, action: SidebarActionTypes): Sideb
         default:
             return state;
     }
-}
+};
 
 export default sidebarReducer;
