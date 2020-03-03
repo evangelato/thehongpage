@@ -66,7 +66,7 @@ const PersonalProjects: React.FC = () => {
                         {data && data.length > 0 ? (
                             _.map(data, function(projectData) {
                                 return (
-                                    <Grid item xs={12} sm={6} md={6} key={projectData.title}>
+                                    <Grid item xs={12} sm={6} md={6} key={projectData.order}>
                                         <Card className={classes.card}>
                                             <CardMedia
                                                 className={classes.cardMedia}

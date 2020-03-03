@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { getHobby } from '../../actions/hobbyActions';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -7,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import _ from 'lodash';
 
 const useStyles = makeStyles(theme => ({
     title: {
@@ -38,6 +41,11 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Hobbies: React.FC = () => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getHobby());
+    }, [dispatch]);
+    const data = useSelector((state: any) => state.Hobby.data);
     const classes = useStyles();
 
     return (
@@ -52,81 +60,31 @@ const Hobbies: React.FC = () => {
                 <Container className={classes.cardGrid} maxWidth="md">
                     {/* End hero unit */}
                     <Grid container spacing={4}>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card className={classes.card}>
-                                <CardMedia
-                                    className={classes.cardMedia}
-                                    image="https://i.imgur.com/LSmY6r6m.jpg"
-                                    title="Image title"
-                                />
-                                <CardContent className={classes.cardContent}>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        Reading
-                                    </Typography>
-                                    <Typography>Reads Fantasy and Science Fiction</Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card className={classes.card}>
-                                <CardMedia
-                                    className={classes.cardMedia}
-                                    image="https://i.imgur.com/XWxS6YCm.jpg"
-                                    title="Image title"
-                                />
-                                <CardContent className={classes.cardContent}>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        Playing Video Games
-                                    </Typography>
-                                    <Typography>Plays Nintendo Switch</Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card className={classes.card}>
-                                <CardMedia
-                                    className={classes.cardMedia}
-                                    image="https://i.imgur.com/NBvT2V5m.jpg"
-                                    title="Image title"
-                                />
-                                <CardContent className={classes.cardContent}>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        Writing Stories
-                                    </Typography>
-                                    <Typography>Writes science fiction and fantasy</Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card className={classes.card}>
-                                <CardMedia
-                                    className={classes.cardMedia}
-                                    image="https://i.imgur.com/ovW7Hdvm.jpg"
-                                    title="Image title"
-                                />
-                                <CardContent className={classes.cardContent}>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        Skiing
-                                    </Typography>
-                                    <Typography>Goes Skiing every winter without fail</Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid>
-                        <Grid item xs={12} sm={6} md={4}>
-                            <Card className={classes.card}>
-                                <CardMedia
-                                    className={classes.cardMedia}
-                                    image="https://i.imgur.com/nRahfAP.jpg"
-                                    title="Image title"
-                                />
-                                <CardContent className={classes.cardContent}>
-                                    <Typography gutterBottom variant="h5" component="h2">
-                                        Watching Movies
-                                    </Typography>
-                                    <Typography>Loves movies be it cinema or at home</Typography>
-                                </CardContent>
-                            </Card>
-                        </Grid>
+                        {data && data.length > 0 ? (
+                            _.map(data, function(hobbyData) {
+                                return (
+                                    <Grid item xs={12} sm={6} md={4} key={hobbyData.order}>
+                                        <Card className={classes.card}>
+                                            <CardMedia
+                                                className={classes.cardMedia}
+                                                image={hobbyData.imageUrl ? hobbyData.imageUrl : ''}
+                                                title="Image title"
+                                            />
+                                            <CardContent className={classes.cardContent}>
+                                                <Typography gutterBottom variant="h5" component="h2">
+                                                    {hobbyData.title ? hobbyData.title : ''}
+                                                </Typography>
+                                                <Typography>
+                                                    {hobbyData.description ? hobbyData.description : ''}
+                                                </Typography>
+                                            </CardContent>
+                                        </Card>
+                                    </Grid>
+                                );
+                            })
+                        ) : (
+                            <React.Fragment />
+                        )}
                     </Grid>
                 </Container>
             </main>

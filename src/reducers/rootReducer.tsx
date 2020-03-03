@@ -3,6 +3,7 @@ import Sidebar from './sidebarReducer';
 import AboutMe from './aboutMeReducer';
 import WorkExperience from './workExperienceReducer';
 import Project from './projectReducer';
+import Hobby from './hobbyReducer';
 import Loading from './loadingReducer';
 
 const rootReducer = combineReducers({
@@ -10,6 +11,7 @@ const rootReducer = combineReducers({
     AboutMe,
     WorkExperience,
     Project,
+    Hobby,
     Loading,
 });
 

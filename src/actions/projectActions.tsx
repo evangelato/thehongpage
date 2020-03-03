@@ -15,7 +15,7 @@ interface Project {
     _id: string;
     title: string;
     description: string;
-    photoUrl: string;
+    imageUrl: string;
     tags: string[];
     externalUrls: ExternalUrls[];
     order: number;
