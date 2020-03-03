@@ -114,7 +114,7 @@ const Sidebar: React.FC = () => {
                         <ListItemIcon>
                             <PaletteIcon />
                         </ListItemIcon>
-                        <ListItemText>Hobbies</ListItemText>
+                        <ListItemText>Hobbies & Interests</ListItemText>
                     </ListItem>
                 </List>
             </div>
