@@ -9,11 +9,14 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import Fade from '@material-ui/core/Fade';
-import ProfilePicture from '../../images/mii.png';
+import _ from 'lodash';
 
 const useStyles = makeStyles(theme => ({
     main: {
         backgroundColor: theme.palette.background.paper,
+    },
+    mainContent: {
+        paddingBottom: theme.spacing(8),
     },
     title: {
         textAlign: 'center',
@@ -36,13 +39,13 @@ const AboutMe: React.FC = () => {
     useEffect(() => {
         dispatch(getAboutMe());
     }, [dispatch]);
-    const content = useSelector((state: any) => state.AboutMe.content);
+    const data = useSelector((state: any) => state.AboutMe.data);
     const classes = useStyles();
     return (
         <React.Fragment>
             <CssBaseline />
             <main>
-                <Paper elevation={3}>
+                <Paper elevation={3} className={classes.mainContent}>
                     <Container maxWidth="xs">
                         <div className={classes.title}>
                             <h1>About Me</h1>
@@ -53,11 +56,23 @@ const AboutMe: React.FC = () => {
                             <Grid container spacing={4}>
                                 <Grid item xs={12} sm={4} alignContent="center">
                                     <div className={classes.avatarGrid}>
-                                        <Avatar alt="Evan Hong" src={ProfilePicture} className={classes.profileSize} />
+                                        <Avatar
+                                            alt="Evan Hong"
+                                            src={data.imageUrl ? data.imageUrl : ''}
+                                            className={classes.profileSize}
+                                        />
                                     </div>
                                 </Grid>
                                 <Grid item xs={12} sm={8}>
-                                    <Box color="text.primary">{content ? content : ''}</Box>
+                                    <Box color="text.primary">
+                                        {data.content && data.content.length > 0 ? (
+                                            _.map(data.content, function(paragraph) {
+                                                return <p>{paragraph}</p>;
+                                            })
+                                        ) : (
+                                            <React.Fragment />
+                                        )}
+                                    </Box>
                                 </Grid>
                             </Grid>
                         </Container>

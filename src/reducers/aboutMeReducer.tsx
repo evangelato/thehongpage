@@ -6,26 +6,26 @@ import {
 } from '../actions/aboutMeActions';
 
 interface AboutMeState {
-    content: string;
+    data: any;
 }
 
 const initialState = {
-    content: '',
+    data: '',
 };
 
 const aboutMeReducer = (state = initialState, action: AboutMeActionTypes): AboutMeState => {
     switch (action.type) {
         case GET_ABOUT_ME_REQUEST:
             return Object.assign({}, state, {
-                content: '',
+                data: '',
             });
         case GET_ABOUT_ME_SUCCESS:
             return Object.assign({}, state, {
-                content: action.response[0].content,
+                data: action.response[0],
             });
         case GET_ABOUT_ME_FAILURE:
             return Object.assign({}, state, {
-                content: '',
+                data: '',
             });
         default:
             return state;
