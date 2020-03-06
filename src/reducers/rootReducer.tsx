@@ -4,6 +4,7 @@ import AboutMe from './aboutMeReducer';
 import WorkExperience from './workExperienceReducer';
 import Education from './educationReducer';
 import Project from './projectReducer';
+import Skill from './skillReducer';
 import Hobby from './hobbyReducer';
 import Loading from './loadingReducer';
 
@@ -13,6 +14,7 @@ const rootReducer = combineReducers({
     WorkExperience,
     Education,
     Project,
+    Skill,
     Hobby,
     Loading,
 });

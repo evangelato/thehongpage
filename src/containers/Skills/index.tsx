@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import { useDispatch, useSelector } from 'react-redux';
+import { getSkill } from '../../actions/skillActions';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
@@ -7,6 +9,16 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
+import _ from 'lodash';
+
+interface DataType {
+    data: {
+        title: string;
+        imageUrl: string;
+        type: string;
+        order: number;
+    }[];
+}
 
 const useStyles = makeStyles(theme => ({
     title: {
@@ -14,6 +26,7 @@ const useStyles = makeStyles(theme => ({
     },
     content: {
         flexGrow: 1,
+        alignContent: 'center',
     },
     cardGrid: {
         paddingTop: theme.spacing(4),
@@ -33,6 +46,7 @@ const useStyles = makeStyles(theme => ({
     cardRow: {
         position: 'relative',
         padding: theme.spacing(3),
+        paddingRight: 0,
         [theme.breakpoints.up('md')]: {
             padding: theme.spacing(6),
             paddingRight: 0,
@@ -41,87 +55,45 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const Skills: React.FC = () => {
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getSkill());
+    }, [dispatch]);
+    const languageData = useSelector((state: any) => state.Skill.languageData);
+    const toolData = useSelector((state: any) => state.Skill.toolData);
     const classes = useStyles();
 
-    const LanguageRow: React.FC = () => {
+    const DataRow: React.FC<DataType> = ({ data }: DataType) => {
         return (
             <React.Fragment>
-                <Grid container md={6} xs={12} sm={12} spacing={3} className={classes.cardRow}>
+                <Grid item container md={6} xs={12} sm={6} spacing={3} className={classes.cardRow}>
                     <Grid item md={12} xs={12} sm={12}>
                         <Typography variant="h4" className={classes.title}>
-                            Languages
+                            {data.length > 0 ? (data[0].type === 'language' ? 'Languages' : 'Tools') : ''}
                         </Typography>
                     </Grid>
-                    <Grid item md={6} xs={6} sm={6}>
-                        <Card className={classes.card}>
-                            <CardMedia
-                                className={classes.cardMedia}
-                                image={'https://i.imgur.com/kgsYB0hm.jpg'}
-                                title="Image title"
-                            />
-                            <CardContent className={classes.cardContent}>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    Test
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item md={6} xs={6} sm={6}>
-                        <Card className={classes.card}>
-                            <CardMedia
-                                className={classes.cardMedia}
-                                image={'https://i.imgur.com/kgsYB0hm.jpg'}
-                                title="Image title"
-                            />
-                            <CardContent className={classes.cardContent}>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    Test
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                </Grid>
-            </React.Fragment>
-        );
-    };
-
-    const ToolRow: React.FC = () => {
-        return (
-            <React.Fragment>
-                <Grid container md={6} xs={12} sm={12} spacing={3} className={classes.cardRow}>
-                    <Grid item md={12} xs={12} sm={12}>
-                        <Typography variant="h4" className={classes.title}>
-                            Tools
-                        </Typography>
-                    </Grid>
-                    <Grid item md={6} xs={6} sm={6}>
-                        <Card className={classes.card}>
-                            <CardMedia
-                                className={classes.cardMedia}
-                                image={'https://i.imgur.com/ILjoiilm.jpg'}
-                                title="Image title"
-                            />
-                            <CardContent className={classes.cardContent}>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    Unity
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
-                    <Grid item md={6} xs={6} sm={6}>
-                        <Card className={classes.card}>
-                            <CardMedia
-                                className={classes.cardMedia}
-                                image={'https://i.imgur.com/Yah6sKXm.png'}
-                                title="Image title"
-                            />
-                            <CardContent className={classes.cardContent}>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    Visual Studio Code
-                                </Typography>
-                            </CardContent>
-                        </Card>
-                    </Grid>
+                    {data && data.length > 0 ? (
+                        _.map(data, function(skill) {
+                            return (
+                                <Grid item md={6} xs={6} sm={6} key={skill.title ? skill.title : ''}>
+                                    <Card className={classes.card}>
+                                        <CardMedia
+                                            className={classes.cardMedia}
+                                            image={skill.imageUrl ? skill.imageUrl : ''}
+                                            title={skill.title ? skill.title : ''}
+                                        />
+                                        <CardContent className={classes.cardContent}>
+                                            <Typography gutterBottom variant="h5" component="h2">
+                                                {skill.title ? skill.title : ''}
+                                            </Typography>
+                                        </CardContent>
+                                    </Card>
+                                </Grid>
+                            );
+                        })
+                    ) : (
+                        <React.Fragment />
+                    )}
                 </Grid>
             </React.Fragment>
         );
@@ -137,9 +109,9 @@ const Skills: React.FC = () => {
                     </div>
                 </Container>
                 <Container className={classes.content} maxWidth="lg">
-                    <Grid container spacing={3}>
-                        <LanguageRow />
-                        <ToolRow />
+                    <Grid container>
+                        <DataRow data={languageData} />
+                        <DataRow data={toolData} />
                     </Grid>
                 </Container>
             </main>
