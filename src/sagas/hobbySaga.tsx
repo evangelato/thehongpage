@@ -1,5 +1,5 @@
 import { put, takeLatest, all } from 'redux-saga/effects';
-import { getHobby } from '../apis/hobbiesApi';
+import { getHobby } from '../apis/hobbyApi';
 import { GET_HOBBY_REQUEST, GET_HOBBY_SUCCESS, GET_HOBBY_FAILURE } from '../actions/hobbyActions';
 
 function* fetchHobbies(): any {
