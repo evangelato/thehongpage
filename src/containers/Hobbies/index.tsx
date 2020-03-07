@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import useStyles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { getHobby } from '../../actions/hobbyActions';
 import Card from '@material-ui/core/Card';
@@ -11,35 +11,6 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import _ from 'lodash';
 import Grow from '@material-ui/core/Grow';
-
-const useStyles = makeStyles(theme => ({
-    title: {
-        textAlign: 'center',
-    },
-    cardGrid: {
-        paddingTop: theme.spacing(4),
-        paddingBottom: theme.spacing(8),
-    },
-    card: {
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    cardMedia: {
-        paddingTop: '56.25%', // 16:9
-    },
-    cardContent: {
-        flexGrow: 1,
-    },
-    chip: {
-        paddingTop: theme.spacing(1),
-        display: 'flex',
-        flexWrap: 'wrap',
-        '& > *': {
-            margin: theme.spacing(0.5),
-        },
-    },
-}));
 
 const Hobbies: React.FC = () => {
     const dispatch = useDispatch();

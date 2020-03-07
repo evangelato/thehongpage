@@ -1,21 +1,12 @@
 import React, { useEffect } from 'react';
+import useStyles from './styles';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWorkExperience } from '../../actions/workExperienceActions';
 import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeline-component';
-import { makeStyles } from '@material-ui/core/styles';
 import 'react-vertical-timeline-component/style.min.css';
 import Container from '@material-ui/core/Container';
 import WorkIcon from '@material-ui/icons/Work';
-
-const useStyles = makeStyles(theme => ({
-    main: {
-        backgroundColor: theme.palette.background.paper,
-    },
-    title: {
-        textAlign: 'center',
-    },
-}));
 
 const WorkExperience: React.FC = () => {
     const dispatch = useDispatch();

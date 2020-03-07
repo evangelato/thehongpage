@@ -1,18 +1,8 @@
 import React, { useEffect } from 'react';
-import { makeStyles } from '@material-ui/core/styles';
+import useStyles from './styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLoadingState, getErrorState } from '../../actions/loadingActions';
-
-const useStyles = makeStyles(() => ({
-    root: {
-        position: 'absolute',
-        left: '50%',
-        top: '45%',
-        webkitTransform: 'translate(-50%, -50%)',
-        transform: 'translate(-50%, -50%)',
-    },
-}));
 
 const Loading = (): any => {
     const dispatch = useDispatch();

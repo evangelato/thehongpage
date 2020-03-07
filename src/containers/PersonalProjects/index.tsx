@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import useStyles from './styles';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -9,40 +10,10 @@ import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grow from '@material-ui/core/Grow';
 import Chip from '@material-ui/core/Chip';
-import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { getProject } from '../../actions/projectActions';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
-
-const useStyles = makeStyles(theme => ({
-    title: {
-        textAlign: 'center',
-    },
-    cardGrid: {
-        paddingTop: theme.spacing(4),
-        paddingBottom: theme.spacing(8),
-    },
-    card: {
-        height: '100%',
-        display: 'flex',
-        flexDirection: 'column',
-    },
-    cardMedia: {
-        paddingTop: '56.25%', // 16:9
-    },
-    cardContent: {
-        flexGrow: 1,
-    },
-    chip: {
-        paddingTop: theme.spacing(1),
-        display: 'flex',
-        flexWrap: 'wrap',
-        '& > *': {
-            margin: theme.spacing(0.5),
-        },
-    },
-}));
 
 const PersonalProjects: React.FC = () => {
     const dispatch = useDispatch();

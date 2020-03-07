@@ -1,5 +1,5 @@
 import React from 'react';
-import './Sidebar.css';
+import useStyles from './styles';
 import { NavLink, useLocation } from 'react-router-dom';
 import { closeSidebar } from '../../actions/sidebarActions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,11 +20,12 @@ const Sidebar: React.FC = () => {
     const dispatch = useDispatch();
     const isSidebarOpen = useSelector((state: any) => state.Sidebar.isSidebarOpen);
     const { pathname } = useLocation();
+    const classes = useStyles();
 
     return (
         <Drawer open={isSidebarOpen} onClose={() => dispatch(closeSidebar())}>
             <div className="list" role="presentation">
-                <List>
+                <List className={classes.sidebar}>
                     <ListItem
                         button
                         key="Home"

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
+import useStyles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAboutMe } from '../../actions/aboutMeActions';
-import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
@@ -10,29 +10,6 @@ import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import Fade from '@material-ui/core/Fade';
 import _ from 'lodash';
-
-const useStyles = makeStyles(theme => ({
-    main: {
-        backgroundColor: theme.palette.background.paper,
-    },
-    mainContent: {
-        paddingBottom: theme.spacing(8),
-    },
-    title: {
-        textAlign: 'center',
-    },
-    profileSize: {
-        width: theme.spacing(30),
-        height: theme.spacing(30),
-    },
-    avatarGrid: {
-        paddingTop: theme.spacing(3),
-        paddingBottom: theme.spacing(3),
-        display: 'flex',
-        alignItems: 'center',
-        flexDirection: 'column',
-    },
-}));
 
 const AboutMe: React.FC = () => {
     const dispatch = useDispatch();
