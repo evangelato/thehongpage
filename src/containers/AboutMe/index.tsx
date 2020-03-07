@@ -51,7 +51,7 @@ const AboutMe: React.FC = () => {
                             <h1>About Me</h1>
                         </div>
                     </Container>
-                    <Fade in={true} timeout={1000}>
+                    <Fade in timeout={1000}>
                         <Container maxWidth="md">
                             <Grid container spacing={4}>
                                 <Grid item xs={12} sm={4} alignContent="center">

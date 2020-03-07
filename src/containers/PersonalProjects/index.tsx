@@ -7,6 +7,7 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
+import Grow from '@material-ui/core/Grow';
 import Chip from '@material-ui/core/Chip';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -66,52 +67,56 @@ const PersonalProjects: React.FC = () => {
                         {data && data.length > 0 ? (
                             _.map(data, function(projectData) {
                                 return (
-                                    <Grid item xs={12} sm={6} md={6} key={projectData.order}>
-                                        <Card className={classes.card}>
-                                            <CardMedia
-                                                className={classes.cardMedia}
-                                                image={projectData.imageUrl ? projectData.imageUrl : ''}
-                                                title="Image title"
-                                            />
-                                            <CardContent className={classes.cardContent}>
-                                                <Typography gutterBottom variant="h5" component="h2">
-                                                    {projectData.title ? projectData.title : ''}
-                                                </Typography>
-                                                <Typography>
-                                                    {projectData.description ? projectData.description : ''}
-                                                </Typography>
-                                                {projectData.tags.length > 0 ? (
-                                                    <div className={classes.chip}>
-                                                        {_.map(projectData.tags, function(value) {
-                                                            return <Chip label={value} color="primary" key={value} />;
-                                                        })}
-                                                    </div>
-                                                ) : (
-                                                    <React.Fragment />
-                                                )}
-                                            </CardContent>
+                                    <Grow in timeout={1000}>
+                                        <Grid item xs={12} sm={6} md={6} key={projectData.order}>
+                                            <Card className={classes.card}>
+                                                <CardMedia
+                                                    className={classes.cardMedia}
+                                                    image={projectData.imageUrl ? projectData.imageUrl : ''}
+                                                    title="Image title"
+                                                />
+                                                <CardContent className={classes.cardContent}>
+                                                    <Typography gutterBottom variant="h5" component="h2">
+                                                        {projectData.title ? projectData.title : ''}
+                                                    </Typography>
+                                                    <Typography>
+                                                        {projectData.description ? projectData.description : ''}
+                                                    </Typography>
+                                                    {projectData.tags.length > 0 ? (
+                                                        <div className={classes.chip}>
+                                                            {_.map(projectData.tags, function(value) {
+                                                                return (
+                                                                    <Chip label={value} color="primary" key={value} />
+                                                                );
+                                                            })}
+                                                        </div>
+                                                    ) : (
+                                                        <React.Fragment />
+                                                    )}
+                                                </CardContent>
 
-                                            <CardActions>
-                                                {projectData.externalUrls.length > 0 ? (
-                                                    _.map(projectData.externalUrls, function(value) {
-                                                        return (
-                                                            <Button
-                                                                size="small"
-                                                                color="primary"
-                                                                href={value.url}
-                                                                target="_blank"
-                                                                key={value.sitename}
-                                                            >
-                                                                View on {value.sitename}
-                                                            </Button>
-                                                        );
-                                                    })
-                                                ) : (
-                                                    <React.Fragment />
-                                                )}
-                                            </CardActions>
-                                        </Card>
-                                    </Grid>
+                                                <CardActions>
+                                                    {projectData.externalUrls.length > 0 ? (
+                                                        _.map(projectData.externalUrls, function(value) {
+                                                            return (
+                                                                <Button
+                                                                    size="small"
+                                                                    color="primary"
+                                                                    href={value.url}
+                                                                    target="_blank"
+                                                                    key={value.sitename}
+                                                                >
+                                                                    View on {value.sitename}
+                                                                </Button>
+                                                            );
+                                                        })
+                                                    ) : (
+                                                        <React.Fragment />
+                                                    )}
+                                                </CardActions>
+                                            </Card>
+                                        </Grid>
+                                    </Grow>
                                 );
                             })
                         ) : (

@@ -9,6 +9,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
+import Grow from '@material-ui/core/Grow';
 import _ from 'lodash';
 
 interface DataType {
@@ -75,20 +76,22 @@ const Skills: React.FC = () => {
                     {data && data.length > 0 ? (
                         _.map(data, function(skill) {
                             return (
-                                <Grid item md={6} xs={6} sm={6} key={skill.title ? skill.title : ''}>
-                                    <Card className={classes.card}>
-                                        <CardMedia
-                                            className={classes.cardMedia}
-                                            image={skill.imageUrl ? skill.imageUrl : ''}
-                                            title={skill.title ? skill.title : ''}
-                                        />
-                                        <CardContent className={classes.cardContent}>
-                                            <Typography gutterBottom variant="h5" component="h2">
-                                                {skill.title ? skill.title : ''}
-                                            </Typography>
-                                        </CardContent>
-                                    </Card>
-                                </Grid>
+                                <Grow in timeout={1000}>
+                                    <Grid item md={6} xs={6} sm={6} key={skill.title ? skill.title : ''}>
+                                        <Card className={classes.card}>
+                                            <CardMedia
+                                                className={classes.cardMedia}
+                                                image={skill.imageUrl ? skill.imageUrl : ''}
+                                                title={skill.title ? skill.title : ''}
+                                            />
+                                            <CardContent className={classes.cardContent}>
+                                                <Typography gutterBottom variant="h5" component="h2">
+                                                    {skill.title ? skill.title : ''}
+                                                </Typography>
+                                            </CardContent>
+                                        </Card>
+                                    </Grid>
+                                </Grow>
                             );
                         })
                     ) : (

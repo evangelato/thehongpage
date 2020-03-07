@@ -10,6 +10,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import _ from 'lodash';
+import Grow from '@material-ui/core/Grow';
 
 const useStyles = makeStyles(theme => ({
     title: {
@@ -63,23 +64,25 @@ const Hobbies: React.FC = () => {
                         {data && data.length > 0 ? (
                             _.map(data, function(hobbyData) {
                                 return (
-                                    <Grid item xs={12} sm={6} md={4} key={hobbyData.order}>
-                                        <Card className={classes.card}>
-                                            <CardMedia
-                                                className={classes.cardMedia}
-                                                image={hobbyData.imageUrl ? hobbyData.imageUrl : ''}
-                                                title="Image title"
-                                            />
-                                            <CardContent className={classes.cardContent}>
-                                                <Typography gutterBottom variant="h5" component="h2">
-                                                    {hobbyData.title ? hobbyData.title : ''}
-                                                </Typography>
-                                                <Typography>
-                                                    {hobbyData.description ? hobbyData.description : ''}
-                                                </Typography>
-                                            </CardContent>
-                                        </Card>
-                                    </Grid>
+                                    <Grow in timeout={1000}>
+                                        <Grid item xs={12} sm={6} md={4} key={hobbyData.order}>
+                                            <Card className={classes.card}>
+                                                <CardMedia
+                                                    className={classes.cardMedia}
+                                                    image={hobbyData.imageUrl ? hobbyData.imageUrl : ''}
+                                                    title="Image title"
+                                                />
+                                                <CardContent className={classes.cardContent}>
+                                                    <Typography gutterBottom variant="h5" component="h2">
+                                                        {hobbyData.title ? hobbyData.title : ''}
+                                                    </Typography>
+                                                    <Typography>
+                                                        {hobbyData.description ? hobbyData.description : ''}
+                                                    </Typography>
+                                                </CardContent>
+                                            </Card>
+                                        </Grid>
+                                    </Grow>
                                 );
                             })
                         ) : (

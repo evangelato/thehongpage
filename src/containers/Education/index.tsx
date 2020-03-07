@@ -72,7 +72,7 @@ const Education: React.FC = () => {
                     </div>
                 </Container>
                 <Container maxWidth="lg">
-                    <Grow in style={{ transformOrigin: '0 0 0' }} timeout={500}>
+                    <Grow in timeout={1000}>
                         <Paper
                             className={classes.mainFeaturedPost}
                             style={{
@@ -100,7 +100,7 @@ const Education: React.FC = () => {
                         </Paper>
                     </Grow>
                     <Grid container spacing={4}>
-                        <Grow in style={{ transformOrigin: '0 0 0' }} timeout={1500}>
+                        <Grow in timeout={2000}>
                             <Grid item xs={12} md={6}>
                                 <Card className={classes.card}>
                                     <div className={classes.cardDetails}>
@@ -125,7 +125,7 @@ const Education: React.FC = () => {
                                 </Card>
                             </Grid>
                         </Grow>
-                        <Grow in style={{ transformOrigin: '0 0 0' }} timeout={2500}>
+                        <Grow in timeout={3000}>
                             <Grid item xs={12} md={6}>
                                 <Card className={classes.card}>
                                     <div className={classes.cardDetails}>
