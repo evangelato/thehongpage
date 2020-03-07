@@ -1,5 +1,4 @@
 import React from 'react';
-import useStyles from './styles';
 import { NavLink, useLocation } from 'react-router-dom';
 import { closeSidebar } from '../../actions/sidebarActions';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,6 +14,7 @@ import SchoolIcon from '@material-ui/icons/School';
 import CodeIcon from '@material-ui/icons/Code';
 import BuildIcon from '@material-ui/icons/Build';
 import PaletteIcon from '@material-ui/icons/Palette';
+import useStyles from './styles';
 
 const Sidebar: React.FC = () => {
     const dispatch = useDispatch();

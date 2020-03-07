@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import useStyles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { getHobby } from '../../actions/hobbyActions';
 import Card from '@material-ui/core/Card';
@@ -11,6 +10,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import _ from 'lodash';
 import Grow from '@material-ui/core/Grow';
+import useStyles from './styles';
 
 const Hobbies: React.FC = () => {
     const dispatch = useDispatch();

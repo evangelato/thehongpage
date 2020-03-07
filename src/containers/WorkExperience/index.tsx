@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import useStyles from './styles';
 import _ from 'lodash';
 import { useDispatch, useSelector } from 'react-redux';
 import { getWorkExperience } from '../../actions/workExperienceActions';
@@ -7,6 +6,7 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import Container from '@material-ui/core/Container';
 import WorkIcon from '@material-ui/icons/Work';
+import useStyles from './styles';
 
 const WorkExperience: React.FC = () => {
     const dispatch = useDispatch();

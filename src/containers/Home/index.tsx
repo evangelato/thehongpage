@@ -1,5 +1,4 @@
 import React from 'react';
-import useStyles from './styles';
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -12,6 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Fade from '@material-ui/core/Fade';
 import Grow from '@material-ui/core/Grow';
+import useStyles from './styles';
 
 const Home: React.FC = () => {
     const classes = useStyles();

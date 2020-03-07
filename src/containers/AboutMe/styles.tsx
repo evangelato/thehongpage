@@ -10,16 +10,16 @@ const useStyles = makeStyles(theme => ({
     title: {
         textAlign: 'center',
     },
-    profileSize: {
-        width: theme.spacing(30),
-        height: theme.spacing(30),
-    },
     avatarGrid: {
         paddingTop: theme.spacing(3),
         paddingBottom: theme.spacing(3),
         display: 'flex',
         alignItems: 'center',
         flexDirection: 'column',
+    },
+    profile: {
+        width: '90%',
+        height: '90%',
     },
 }));
 

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import useStyles from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { getEducation } from '../../actions/educationActions';
 import Paper from '@material-ui/core/Paper';
@@ -11,6 +10,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grow from '@material-ui/core/Grow';
+import useStyles from './styles';
 
 const Education: React.FC = () => {
     const dispatch = useDispatch();

@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import useStyles from './styles';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
 import CardActions from '@material-ui/core/CardActions';
@@ -14,6 +13,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { getProject } from '../../actions/projectActions';
 import { useDispatch, useSelector } from 'react-redux';
 import _ from 'lodash';
+import useStyles from './styles';
 
 const PersonalProjects: React.FC = () => {
     const dispatch = useDispatch();

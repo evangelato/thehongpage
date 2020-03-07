@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import useStyles from './styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import { useDispatch, useSelector } from 'react-redux';
 import { getLoadingState, getErrorState } from '../../actions/loadingActions';
+import useStyles from './styles';
 
 const Loading = (): any => {
     const dispatch = useDispatch();
