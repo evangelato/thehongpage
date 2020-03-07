@@ -11,7 +11,6 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Fade from '@material-ui/core/Fade';
-import HeroImage from '../../images/heroImage.jpeg';
 import Grow from '@material-ui/core/Grow';
 
 const useStyles = makeStyles(theme => ({
@@ -22,7 +21,7 @@ const useStyles = makeStyles(theme => ({
         backgroundColor: theme.palette.background.paper,
     },
     heroContent: {
-        backgroundImage: `url(${HeroImage})`,
+        backgroundImage: `url(https://i.imgur.com/g4UJXbw.jpg)`,
         backgroundRepeat: 'no-repeat',
         backgroundAttachment: 'fixed',
         backgroundPosition: 'center',
@@ -96,7 +95,7 @@ const Home: React.FC = () => {
                                 <Card className={classes.card}>
                                     <CardMedia
                                         className={classes.cardMedia}
-                                        image={require('../../images/briefcase.png')}
+                                        image={'https://i.imgur.com/HKSKZtZ.png'}
                                         title="Image title"
                                     />
                                     <CardContent className={classes.cardContent}>
@@ -120,7 +119,7 @@ const Home: React.FC = () => {
                                 <Card className={classes.card}>
                                     <CardMedia
                                         className={classes.cardMedia}
-                                        image={require('../../images/graduation_hat.png')}
+                                        image={'https://i.imgur.com/bOoA2zD.png'}
                                         title="Image title"
                                     />
                                     <CardContent className={classes.cardContent}>
@@ -142,7 +141,7 @@ const Home: React.FC = () => {
                                 <Card className={classes.card}>
                                     <CardMedia
                                         className={classes.cardMedia}
-                                        image={require('../../images/lightbulb.png')}
+                                        image={'https://i.imgur.com/XbTl3Dv.png'}
                                         title="Image title"
                                     />
                                     <CardContent className={classes.cardContent}>
