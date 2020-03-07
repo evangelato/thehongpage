@@ -12,6 +12,7 @@ import Chip from '@material-ui/core/Chip';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { getProject } from '../../actions/projectActions';
 import { useDispatch, useSelector } from 'react-redux';
+import Loading from '../Loading';
 import _ from 'lodash';
 import useStyles from './styles';
 
@@ -24,7 +25,7 @@ const PersonalProjects: React.FC = () => {
     const classes = useStyles();
 
     return (
-        <React.Fragment>
+        <Loading>
             <CssBaseline />
             <main>
                 <Container maxWidth="xs">
@@ -96,7 +97,7 @@ const PersonalProjects: React.FC = () => {
                     </Grid>
                 </Container>
             </main>
-        </React.Fragment>
+        </Loading>
     );
 };
 

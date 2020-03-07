@@ -10,6 +10,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import _ from 'lodash';
 import Grow from '@material-ui/core/Grow';
+import Loading from '../Loading';
 import useStyles from './styles';
 
 const Hobbies: React.FC = () => {
@@ -21,7 +22,7 @@ const Hobbies: React.FC = () => {
     const classes = useStyles();
 
     return (
-        <React.Fragment>
+        <Loading>
             <CssBaseline />
             <main>
                 <Container maxWidth="xs">
@@ -62,7 +63,7 @@ const Hobbies: React.FC = () => {
                     </Grid>
                 </Container>
             </main>
-        </React.Fragment>
+        </Loading>
     );
 };
 

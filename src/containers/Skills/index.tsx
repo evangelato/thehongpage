@@ -10,6 +10,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Typography from '@material-ui/core/Typography';
 import Grow from '@material-ui/core/Grow';
 import _ from 'lodash';
+import Loading from '../Loading';
 import useStyles from './styles';
 
 interface DataType {
@@ -69,7 +70,7 @@ const Skills: React.FC = () => {
     };
 
     return (
-        <React.Fragment>
+        <Loading>
             <CssBaseline />
             <main>
                 <Container maxWidth="xs">
@@ -84,7 +85,7 @@ const Skills: React.FC = () => {
                     </Grid>
                 </Container>
             </main>
-        </React.Fragment>
+        </Loading>
     );
 };
 

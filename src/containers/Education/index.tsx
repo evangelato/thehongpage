@@ -10,6 +10,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grow from '@material-ui/core/Grow';
+import Loading from '../Loading';
 import useStyles from './styles';
 
 const Education: React.FC = () => {
@@ -20,7 +21,7 @@ const Education: React.FC = () => {
     const data = useSelector((state: any) => state.Education.data);
     const classes = useStyles();
     return (
-        <React.Fragment>
+        <Loading>
             <div className={classes.main}>
                 <Container maxWidth="xs">
                     <div className={classes.title}>
@@ -115,7 +116,7 @@ const Education: React.FC = () => {
                     </Grid>
                 </Container>
             </div>
-        </React.Fragment>
+        </Loading>
     );
 };
 

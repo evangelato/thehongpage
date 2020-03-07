@@ -6,6 +6,7 @@ import { VerticalTimeline, VerticalTimelineElement } from 'react-vertical-timeli
 import 'react-vertical-timeline-component/style.min.css';
 import Container from '@material-ui/core/Container';
 import WorkIcon from '@material-ui/icons/Work';
+import Loading from '../Loading';
 import useStyles from './styles';
 
 const WorkExperience: React.FC = () => {
@@ -16,7 +17,7 @@ const WorkExperience: React.FC = () => {
     const data = useSelector((state: any) => state.WorkExperience.data);
     const classes = useStyles();
     return (
-        <React.Fragment>
+        <Loading>
             <Container maxWidth="xs">
                 <div className={classes.title}>
                     <h1>Work Experiences</h1>
@@ -48,7 +49,7 @@ const WorkExperience: React.FC = () => {
                     ;
                 </VerticalTimeline>
             </Container>
-        </React.Fragment>
+        </Loading>
     );
 };
 

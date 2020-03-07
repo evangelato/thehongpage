@@ -8,6 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import Fade from '@material-ui/core/Fade';
+import Loading from '../Loading';
 import _ from 'lodash';
 import useStyles from './styles';
 
@@ -19,7 +20,7 @@ const AboutMe: React.FC = () => {
     const data = useSelector((state: any) => state.AboutMe.data);
     const classes = useStyles();
     return (
-        <React.Fragment>
+        <Loading>
             <CssBaseline />
             <main>
                 <Container maxWidth="xs">
@@ -58,7 +59,7 @@ const AboutMe: React.FC = () => {
                     </Paper>
                 </Container>
             </main>
-        </React.Fragment>
+        </Loading>
     );
 };
 
