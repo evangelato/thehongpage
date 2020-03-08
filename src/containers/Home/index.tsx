@@ -1,4 +1,6 @@
-import React from 'react';
+import React, { useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { getHome } from '../../actions/homeActions';
 import { NavLink } from 'react-router-dom';
 import Button from '@material-ui/core/Button';
 import Card from '@material-ui/core/Card';
@@ -14,6 +16,15 @@ import Grow from '@material-ui/core/Grow';
 import useStyles from './styles';
 
 const Home: React.FC = () => {
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getHome());
+    }, [dispatch]);
+    const data = useSelector((state: any) => state.Home.data);
+    const sendEmail = useCallback(() => {
+        window.location.href = `mailto:${data.email}`;
+    }, [data.email]);
     const classes = useStyles();
 
     return (
@@ -38,12 +49,18 @@ const Home: React.FC = () => {
                             <div className={classes.heroButtons}>
                                 <Grid container spacing={2} justify="center">
                                     <Grid item>
-                                        <Button variant="contained" color="primary">
+                                        <Button
+                                            variant="contained"
+                                            color="primary"
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            href={data.resumeUrl}
+                                        >
                                             Download Resume
                                         </Button>
                                     </Grid>
                                     <Grid item>
-                                        <Button variant="contained" color="secondary">
+                                        <Button variant="contained" color="secondary" onClick={sendEmail}>
                                             Contact Me
                                         </Button>
                                     </Grid>

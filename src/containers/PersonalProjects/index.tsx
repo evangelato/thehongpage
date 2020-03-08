@@ -76,6 +76,7 @@ const PersonalProjects: React.FC = () => {
                                                                     color="primary"
                                                                     href={value.url}
                                                                     target="_blank"
+                                                                    rel="noopener noreferrer"
                                                                     key={value.sitename}
                                                                 >
                                                                     View on {value.sitename}

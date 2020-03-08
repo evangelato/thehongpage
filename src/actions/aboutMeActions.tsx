@@ -8,7 +8,7 @@ export const GET_ABOUT_ME_FAILURE = 'GET_ABOUT_ME_FAILURE';
 interface AboutMe {
     _id: string;
     content: string;
-    date: string;
+    date: Date;
 }
 
 interface GetAboutMeRequestAction {
