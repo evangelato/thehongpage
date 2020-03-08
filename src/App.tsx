@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import Sidebar from './containers/Sidebar';
@@ -46,9 +46,10 @@ const App: React.FC = () => {
     );
     const classes = useStyles();
 
-    // const [isSidebarOpen, toggleSidebar] = useState(false);
-
     const dispatch = useDispatch();
+    const toggleSidebar = useCallback(() => {
+        dispatch(openSidebar());
+    }, [dispatch]);
 
     const theme = createMuiTheme({
         palette: {
@@ -70,8 +71,13 @@ const App: React.FC = () => {
                     <Router>
                         <AppBar position="fixed">
                             <Toolbar>
-                                <IconButton edge="start" className={classes.menuButton} aria-label="menu">
-                                    <MenuIcon onClick={() => dispatch(openSidebar())} />
+                                <IconButton
+                                    edge="start"
+                                    className={classes.menuButton}
+                                    aria-label="menu"
+                                    onClick={toggleSidebar}
+                                >
+                                    <MenuIcon />
                                 </IconButton>
                                 <Typography variant="h6" className={classes.title}>
                                     The Hongpage

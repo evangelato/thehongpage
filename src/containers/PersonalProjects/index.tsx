@@ -27,77 +27,72 @@ const PersonalProjects: React.FC = () => {
     return (
         <Loading>
             <CssBaseline />
-            <main>
-                <Container maxWidth="xs">
-                    <div className={classes.title}>
-                        <h1>Personal Projects</h1>
-                    </div>
-                </Container>
-                <Container className={classes.cardGrid} maxWidth="md">
-                    {/* End hero unit */}
-                    <Grid container spacing={4}>
-                        {data && data.length > 0 ? (
-                            _.map(data, function(projectData) {
-                                return (
-                                    <Grow in timeout={1000}>
-                                        <Grid item xs={12} sm={6} md={6} key={projectData.order}>
-                                            <Card className={classes.card}>
-                                                <CardMedia
-                                                    className={classes.cardMedia}
-                                                    image={projectData.imageUrl ? projectData.imageUrl : ''}
-                                                    title="Image title"
-                                                />
-                                                <CardContent className={classes.cardContent}>
-                                                    <Typography gutterBottom variant="h5" component="h2">
-                                                        {projectData.title ? projectData.title : ''}
-                                                    </Typography>
-                                                    <Typography>
-                                                        {projectData.description ? projectData.description : ''}
-                                                    </Typography>
-                                                    {projectData.tags.length > 0 ? (
-                                                        <div className={classes.chip}>
-                                                            {_.map(projectData.tags, function(value) {
-                                                                return (
-                                                                    <Chip label={value} color="primary" key={value} />
-                                                                );
-                                                            })}
-                                                        </div>
-                                                    ) : (
-                                                        <React.Fragment />
-                                                    )}
-                                                </CardContent>
+            <Container maxWidth="xs">
+                <div className={classes.title}>
+                    <h1>Personal Projects</h1>
+                </div>
+            </Container>
+            <Container className={classes.cardGrid} maxWidth="md">
+                <Grid container spacing={4}>
+                    {data && data.length > 0 ? (
+                        _.map(data, function(projectData, index) {
+                            return (
+                                <Grow in timeout={1000} key={index}>
+                                    <Grid item xs={12} sm={6} md={6} key={projectData.order}>
+                                        <Card className={classes.card}>
+                                            <CardMedia
+                                                className={classes.cardMedia}
+                                                image={projectData.imageUrl ? projectData.imageUrl : ''}
+                                                title="Image title"
+                                            />
+                                            <CardContent className={classes.cardContent}>
+                                                <Typography gutterBottom variant="h5" component="h2">
+                                                    {projectData.title ? projectData.title : ''}
+                                                </Typography>
+                                                <Typography>
+                                                    {projectData.description ? projectData.description : ''}
+                                                </Typography>
+                                                {projectData.tags.length > 0 ? (
+                                                    <div className={classes.chip}>
+                                                        {_.map(projectData.tags, function(value) {
+                                                            return <Chip label={value} color="primary" key={value} />;
+                                                        })}
+                                                    </div>
+                                                ) : (
+                                                    <React.Fragment />
+                                                )}
+                                            </CardContent>
 
-                                                <CardActions>
-                                                    {projectData.externalUrls.length > 0 ? (
-                                                        _.map(projectData.externalUrls, function(value) {
-                                                            return (
-                                                                <Button
-                                                                    size="small"
-                                                                    color="primary"
-                                                                    href={value.url}
-                                                                    target="_blank"
-                                                                    rel="noopener noreferrer"
-                                                                    key={value.sitename}
-                                                                >
-                                                                    View on {value.sitename}
-                                                                </Button>
-                                                            );
-                                                        })
-                                                    ) : (
-                                                        <React.Fragment />
-                                                    )}
-                                                </CardActions>
-                                            </Card>
-                                        </Grid>
-                                    </Grow>
-                                );
-                            })
-                        ) : (
-                            <React.Fragment />
-                        )}
-                    </Grid>
-                </Container>
-            </main>
+                                            <CardActions>
+                                                {projectData.externalUrls.length > 0 ? (
+                                                    _.map(projectData.externalUrls, function(value) {
+                                                        return (
+                                                            <Button
+                                                                size="small"
+                                                                color="primary"
+                                                                href={value.url}
+                                                                target="_blank"
+                                                                rel="noopener noreferrer"
+                                                                key={value.sitename}
+                                                            >
+                                                                View on {value.sitename}
+                                                            </Button>
+                                                        );
+                                                    })
+                                                ) : (
+                                                    <React.Fragment />
+                                                )}
+                                            </CardActions>
+                                        </Card>
+                                    </Grid>
+                                </Grow>
+                            );
+                        })
+                    ) : (
+                        <React.Fragment />
+                    )}
+                </Grid>
+            </Container>
         </Loading>
     );
 };

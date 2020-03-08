@@ -22,43 +22,41 @@ const AboutMe: React.FC = () => {
     return (
         <Loading>
             <CssBaseline />
-            <main>
-                <Container maxWidth="xs">
-                    <div className={classes.title}>
-                        <h1>About Me</h1>
-                    </div>
-                </Container>
-                <Container maxWidth="lg">
-                    <Paper elevation={3} className={classes.mainContent}>
-                        <Fade in timeout={1000}>
-                            <Container maxWidth="md">
-                                <Grid container spacing={4}>
-                                    <Grid item xs={12} sm={4} alignContent="center">
-                                        <div className={classes.avatarGrid}>
-                                            <Avatar
-                                                alt="Evan Hong"
-                                                src={data.imageUrl ? data.imageUrl : ''}
-                                                className={classes.profile}
-                                            />
-                                        </div>
-                                    </Grid>
-                                    <Grid item xs={12} sm={8}>
-                                        <Box color="text.primary">
-                                            {data.content && data.content.length > 0 ? (
-                                                _.map(data.content, function(paragraph) {
-                                                    return <p>{paragraph}</p>;
-                                                })
-                                            ) : (
-                                                <React.Fragment />
-                                            )}
-                                        </Box>
-                                    </Grid>
+            <Container maxWidth="xs">
+                <div className={classes.title}>
+                    <h1>About Me</h1>
+                </div>
+            </Container>
+            <Container maxWidth="lg">
+                <Paper elevation={3} className={classes.mainContent}>
+                    <Fade in timeout={1000}>
+                        <Container maxWidth="md">
+                            <Grid container spacing={4}>
+                                <Grid item xs={12} sm={4}>
+                                    <div className={classes.avatarGrid}>
+                                        <Avatar
+                                            alt="Evan Hong"
+                                            src={data.imageUrl ? data.imageUrl : ''}
+                                            className={classes.profile}
+                                        />
+                                    </div>
                                 </Grid>
-                            </Container>
-                        </Fade>
-                    </Paper>
-                </Container>
-            </main>
+                                <Grid item xs={12} sm={8}>
+                                    <Box color="text.primary">
+                                        {data.content && data.content.length > 0 ? (
+                                            _.map(data.content, function(paragraph, index) {
+                                                return <p key={index}>{paragraph}</p>;
+                                            })
+                                        ) : (
+                                            <React.Fragment />
+                                        )}
+                                    </Box>
+                                </Grid>
+                            </Grid>
+                        </Container>
+                    </Fade>
+                </Paper>
+            </Container>
         </Loading>
     );
 };

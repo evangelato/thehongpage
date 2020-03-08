@@ -43,7 +43,7 @@ const Skills: React.FC = () => {
                     {data && data.length > 0 ? (
                         _.map(data, function(skill) {
                             return (
-                                <Grow in timeout={1000}>
+                                <Grow in timeout={1000} key={skill.title ? skill.title : ''}>
                                     <Grid item md={6} xs={6} sm={6} key={skill.title ? skill.title : ''}>
                                         <Card className={classes.card}>
                                             <CardMedia
@@ -72,19 +72,18 @@ const Skills: React.FC = () => {
     return (
         <Loading>
             <CssBaseline />
-            <main>
-                <Container maxWidth="xs">
-                    <div className={classes.title}>
-                        <h1>Skills</h1>
-                    </div>
-                </Container>
-                <Container className={classes.content} maxWidth="lg">
-                    <Grid container>
-                        <DataRow data={languageData} />
-                        <DataRow data={toolData} />
-                    </Grid>
-                </Container>
-            </main>
+
+            <Container maxWidth="xs">
+                <div className={classes.title}>
+                    <h1>Skills</h1>
+                </div>
+            </Container>
+            <Container className={classes.content} maxWidth="lg">
+                <Grid container>
+                    <DataRow data={languageData} />
+                    <DataRow data={toolData} />
+                </Grid>
+            </Container>
         </Loading>
     );
 };
