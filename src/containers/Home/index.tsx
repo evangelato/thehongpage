@@ -24,7 +24,7 @@ const Home: React.FC = () => {
     }, [dispatch]);
     const data = useSelector((state: any) => state.Home.data);
     const sendEmail = useCallback(() => {
-        window.location.href = `mailto:${data.email}`;
+        window.location.href = `mailto:${data.email ? data.email : ''}`;
     }, [data.email]);
     const classes = useStyles();
 
@@ -53,7 +53,7 @@ const Home: React.FC = () => {
                                         color="primary"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        href={data.resumeUrl}
+                                        href={data.resumeUrl ? data.resumeUrl : ''}
                                     >
                                         Download Resume
                                     </Button>
