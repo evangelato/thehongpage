@@ -8,6 +8,7 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Avatar from '@material-ui/core/Avatar';
 import Paper from '@material-ui/core/Paper';
 import Fade from '@material-ui/core/Fade';
+import Typography from '@material-ui/core/Typography';
 import Loading from '../Loading';
 import _ from 'lodash';
 import useStyles from './styles';
@@ -45,7 +46,11 @@ const AboutMe: React.FC = () => {
                                     <Box color="text.primary">
                                         {data.content && data.content.length > 0 ? (
                                             _.map(data.content, function(paragraph, index) {
-                                                return <p key={index}>{paragraph}</p>;
+                                                return (
+                                                    <p key={index}>
+                                                        <Typography variant="body1">{paragraph}</Typography>
+                                                    </p>
+                                                );
                                             })
                                         ) : (
                                             <React.Fragment />
