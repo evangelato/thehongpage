@@ -27,7 +27,7 @@ const AboutMe: React.FC = () => {
                     <h1>About Me</h1>
                 </div>
             </Container>
-            <Container maxWidth="lg">
+            <Container maxWidth="lg" className={classes.main}>
                 <Paper elevation={3} className={classes.mainContent}>
                     <Fade in timeout={1000}>
                         <Container maxWidth="md">

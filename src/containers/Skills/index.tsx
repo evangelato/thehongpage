@@ -37,7 +37,7 @@ const Skills: React.FC = () => {
                 <Grid item container md={6} xs={12} sm={6} spacing={3} className={classes.cardRow}>
                     <Grid item md={12} xs={12} sm={12}>
                         <Typography variant="h4" className={classes.title}>
-                            {data.length > 0 ? (data[0].type === 'language' ? 'Languages' : 'Tools') : ''}
+                            {data.length > 0 ? (data[0].type === 'language' ? 'Languages & Frameworks' : 'Tools') : ''}
                         </Typography>
                     </Grid>
                     {data && data.length > 0 ? (
@@ -72,7 +72,6 @@ const Skills: React.FC = () => {
     return (
         <Loading>
             <CssBaseline />
-
             <Container maxWidth="xs">
                 <div className={classes.title}>
                     <h1>Skills</h1>

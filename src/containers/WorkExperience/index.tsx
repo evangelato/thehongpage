@@ -23,7 +23,7 @@ const WorkExperience: React.FC = () => {
                     <h1>Work Experiences</h1>
                 </div>
             </Container>
-            <Container>
+            <Container className={classes.timeline}>
                 <VerticalTimeline>
                     {_.map(data, function(value) {
                         return (
