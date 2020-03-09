@@ -46,7 +46,6 @@ const WorkExperience: React.FC = () => {
                             </VerticalTimelineElement>
                         );
                     })}
-                    ;
                 </VerticalTimeline>
             </Container>
         </Loading>
