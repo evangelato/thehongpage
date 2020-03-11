@@ -63,7 +63,7 @@ const Sidebar: React.FC = () => {
                         <ListItemIcon>
                             <WorkIcon />
                         </ListItemIcon>
-                        <ListItemText>Work Experience</ListItemText>
+                        <ListItemText>Work Experiences</ListItemText>
                     </ListItem>
                     <ListItem
                         button
