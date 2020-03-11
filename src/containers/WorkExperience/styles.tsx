@@ -7,6 +7,12 @@ const useStyles = makeStyles(theme => ({
     timeline: {
         paddingBottom: theme.spacing(4),
     },
+    content: {
+        passingBottom: theme.spacing(2),
+    },
+    button: {
+        paddingTop: theme.spacing(2),
+    },
 }));
 
 export default useStyles;

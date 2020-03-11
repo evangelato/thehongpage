@@ -9,8 +9,10 @@ interface WorkExperience {
     _id: string;
     companyName: string;
     jobTitle: string;
-    description: string;
+    description: string[];
     duration: string;
+    externalUrls: string[];
+    order: number;
 }
 
 interface GetWorkExperienceRequestAction {
