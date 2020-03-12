@@ -44,6 +44,7 @@ const AboutMe: React.FC = () => {
                                 </Grid>
                                 <Grid item xs={12} sm={8}>
                                     <Box color="text.primary">
+                                        <Typography variant="h4">{data.title}</Typography>
                                         {data.content && data.content.length > 0 ? (
                                             _.map(data.content, function(paragraph, index) {
                                                 return (

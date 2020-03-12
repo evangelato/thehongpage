@@ -7,6 +7,7 @@ export const GET_ABOUT_ME_FAILURE = 'GET_ABOUT_ME_FAILURE';
 
 interface AboutMe {
     _id: string;
+    title: string;
     content: string;
     date: Date;
 }
