@@ -7,6 +7,7 @@ import 'react-vertical-timeline-component/style.min.css';
 import Container from '@material-ui/core/Container';
 import Button from '@material-ui/core/Button';
 import WorkIcon from '@material-ui/icons/Work';
+import Typography from '@material-ui/core/Typography';
 import Loading from '../Loading';
 import useStyles from './styles';
 
@@ -37,17 +38,17 @@ const WorkExperience: React.FC = () => {
                                 icon={<WorkIcon />}
                                 key={value._id ? value._id : ''}
                             >
-                                <h3 className="vertical-timeline-element-title">
+                                <Typography variant="h5" className="vertical-timeline-element-title">
                                     {value.companyName ? value.companyName : ''}
-                                </h3>
-                                <h4 className="vertical-timeline-element-subtitle">
-                                    {value.jobTitle ? value.jobTitle : ''}
-                                </h4>
+                                </Typography>
 
+                                <Typography variant="h6" className="vertical-timeline-element-subtitle">
+                                    {value.jobTitle ? value.jobTitle : ''}
+                                </Typography>
                                 {value.description.length > 0 ? (
                                     <ul>
-                                        {_.map(value.description, function(description) {
-                                            return <li>{description}</li>;
+                                        {_.map(value.description, function(description, index) {
+                                            return <li key={index}>{description}</li>;
                                         })}
                                     </ul>
                                 ) : (
