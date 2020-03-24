@@ -9,6 +9,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import createSagaMiddleware from 'redux-saga';
 import rootSaga from './sagas';
+import 'typeface-roboto';
 import { logger } from 'redux-logger';
 
 const sagaMiddleware = createSagaMiddleware();
