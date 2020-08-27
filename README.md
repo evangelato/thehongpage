@@ -8,7 +8,8 @@ View it on https://www.thehongpage.com/
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Installation
-Clone the repository with 
+
+Clone the repository with
 
 ```
 git clone https://github.com/evangelato/thehongpage_frontend.git
@@ -48,8 +49,8 @@ Your app is ready to be deployed!
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
 ### `npm run start`
-Runs the app in production mode. The build command must be run before running this command.
 
+Runs the app in production mode. The build command must be run before running this command.
 
 ### `npm run eject`
 
