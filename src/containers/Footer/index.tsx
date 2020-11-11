@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
                         <ItchIcon />
                     </a>
                     <a
-                        href="https://www.linkedin.com/in/evan-hong-2643501a1/"
+                        href="https://www.linkedin.com/in/sungwoodeveloper/"
                         className={classes.hyperlink}
                         target="_blank"
                         rel="noopener noreferrer"
